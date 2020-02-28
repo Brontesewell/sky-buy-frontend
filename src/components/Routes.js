@@ -6,7 +6,6 @@ import {
 import NavBar from './NavBar';
 import Profile from './Profile';
 import Home from './Home';
-
 import ShoppingCart from './ShoppingCart'
 import ItemsList from './ItemsList'
 
@@ -22,13 +21,12 @@ class Routes extends React.Component {
   }
 
   handleSelectClick = (item) => {
-    if(!this.state.selectedItems.includes(item)) {
+    
     this.setState(prevState => ({
             ...prevState,
             selectedItems: [...prevState.selectedItems, item]
     
         }))
-}
   }
 
 
@@ -52,7 +50,6 @@ class Routes extends React.Component {
                      <route path="" render={(routerProps) => <SignUp/>}></route>  */}
                      <Route path="/home" render={(routerProps) => <Home />}/>
                      <Route path="/profile" render={(routerProps) => <Profile/>}/> 
-                     {/* <Route path="/items" render={(routerProps) => <Items items={this.props.items} handleSelectClick={this.handleSelectClick}/>}/> */}
                      <Route path="/shoppingcart" render={(routerProps) => <ShoppingCart selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
                      {/* <route path="/itemsearch" render={(routerProps) => <itemsSearch/>}></route>  */}
                      <Route path="/itemslist" render={(routerProps) => <ItemsList item={this.state.item} handleSelectClick={this.handleSelectClick}/>}/> 

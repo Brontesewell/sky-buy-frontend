@@ -26,3 +26,20 @@
 .selectedItems {
   background-color: #09d3ac;
 }
+
+#navvy {
+ align-content: center;
+ width: 100%;
+}
+
+#nav-bar-title {
+  color: blue;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+
+.mr-auto {
+  font-size: 20px;
+}
+
