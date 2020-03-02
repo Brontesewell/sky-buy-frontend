@@ -7,12 +7,12 @@ class ShoppingCart extends React.Component {
   render() {
     console.log(this.props.selectedItems)
     return (
-    <div>
-      <div className="row bot-army-row">
+    <div className="shopping-cart">
            <h1>Shopping Cart:</h1> 
-          {this.props.selectedItems.map(item => <div><ItemCard item={item}/> <Button className="ui button fluid" onClick={() => this.props.removeSelectedItems(this.props.item)}> Delete Item </Button> </div>)}
-          
+      <div className="shopping-cart">
+    {this.props.selectedItems.map(item => <div class="shopping-div"> <div id="item-card-div"><h2>{item.title}</h2> <img id="img-card-shopping"src={item.img_url}></img></div> <div id="price"><h3>Price: ${item.price}</h3></div>  <div id="button-div"> <Button className="ui button fluid" onClick={() => this.props.removeSelectedItems(item)}> Delete Item </Button></div> </div>)}
           </div>
+    <h3> Total Price: ${this.props.selectedItems.map(item => item.price)}</h3>
           </div>
     )
   }

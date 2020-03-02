@@ -2,10 +2,36 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   text-align: center;
+  float: left;
+  width: 50%;
+  padding: 5px;
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 black;
+}
+
+
+
+#button-div{ 
+  float:right;
+  width:25%; 
+  height:200px;
+  margin-top: 70px;
+}
+
+#price {
+  float:left;
+  width:25%; 
+  height:200px;
+  margin-top: 70px;
+}
+
+#item-card-div {
+  float:left;
+  width:50%; 
+  height:200px;
+
 }
 
 
@@ -43,3 +69,20 @@
   font-size: 20px;
 }
 
+.shopping-cart {
+  text-align: center;
+}
+
+#img-cards {
+  height: 40%;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#img-card-shopping {
+  height: 60%;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}

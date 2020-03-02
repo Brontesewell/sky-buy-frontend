@@ -7,6 +7,8 @@ class ItemsCard extends React.Component {
         <div>
         <div className='card' onClick={() => this.props.handleItemClick(this.props.item)}>
     <h3>{this.props.item.title}</h3>
+    <img id="img-cards" alt="" src={this.props.item.img_url}></img>
+    <h5>${this.props.item.price}</h5>
     </div>
     </div>
     )

@@ -13,6 +13,5 @@ export function constructItem(itemData){
   }
   
   export function constructItems(itemData) {
-    debugger
     return itemData.map(item => constructItem(item))
   }

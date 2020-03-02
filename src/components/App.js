@@ -15,15 +15,15 @@ class App extends React.Component {
      searchedItems: []
   }
 
-  componentDidMount() {
-    searchForItems("cat", 1).then(data => this.setState(prevState => {
-     return {
-      ...prevState,
-      searchedItems: constructItems(data["result"]["item"]) 
-     } 
+  // componentDidMount() {
+  //   searchForItems("cat", 1).then(data => this.setState(prevState => {
+  //    return {
+  //     ...prevState,
+  //     searchedItems: constructItems(data["result"]["item"]) 
+  //    } 
 
-    }))
-  } 
+  //   }))
+  // } 
 
   render() {
     console.log(this.state.items)
