@@ -47,4 +47,3 @@ export const authenticate = (token) => {
     return fetch(url, configuration).then(resp => resp.json())
 }
 
-

@@ -15,7 +15,7 @@ class Profile extends React.Component {
           this.props.isAuthenticatedUser()
          
         }
-        console.log("ItemsList Mounted")
+        console.log("Profile Mounted")
   }
   
 

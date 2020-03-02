@@ -11,9 +11,16 @@ import ItemsList from './ItemsList'
 import Login from './Login'
 import {authenticate} from '../services/api'
 import {extractItemsFromPurchases} from '../utilities/helpers'
+import { searchForItems } from '../services/api'
+import { constructItems} from '../utilities/helpers'
 
 
+const taobaoHeaders = {
+  "x-rapidapi-host": "taobao-api.p.rapidapi.com",
+  "x-rapidapi-key": "pgIpYdsMbLmshKSnodVWVQOZrSirp1U6HnIjsni2mklfznQrJ2",
+  "Accept": "application/json"
 
+}
 
 class Routes extends React.Component {
   state = {
@@ -125,7 +132,56 @@ class Routes extends React.Component {
       }, () => this.props.history.push("/"))
  
 
+
   }
+
+  randomItems = () => {
+    console.log("items")
+    searchForItems("dog", 50).then(data => {
+            
+   
+    console.log(data["result"]["item"])    
+
+    this.setState(prevState => {
+    return {
+     ...prevState,
+     item: constructItems(data["result"]["item"]), 
+    }
+
+
+   })
+    
+    
+    
+    
+    }).catch(err => console.log(err))
+}
+
+  handleInputChange = (event) => {
+    //debugger
+    const input = event.target.value;
+   
+    this.setState({
+      query: input,
+    })
+  };
+  
+
+  buttonClick = () => {
+    searchForItems(this.state.query, 50).then(data => this.setState(prevState => {
+      return {
+       ...prevState,
+       item: constructItems(data["result"]["item"]), 
+      }}))
+  }
+
+//   updateState = (newItems) => {
+//     this.setState({
+//       item: newItems
+//     })
+// }
+
+
 
   handleSelectClick = (item) => {
     
@@ -151,17 +207,19 @@ class Routes extends React.Component {
     return (  
         
               <div> 
-                 { this.state.auth.loggedIn ? < NavBar handleLogOut={this.handleLogOut} />: null}
+                 { this.state.auth.loggedIn ? < NavBar handleInputChange={this.handleInputChange} query={this.state.query} buttonClick={this.buttonClick} handleLogOut={this.handleLogOut} />: null}
                      <Switch>
                      <Route exact path="/" render={(routerProps) => <Login setLogin={this.setLogin} {...routerProps} handleLogin={this.handleLogin} signOut={this.props.signOut} user={this.props.user} auth={this.state.auth} signInWithGoogle={this.props.signInWithGoogle} />}/>
                      <Route exact path="/home" render={(routerProps) => <Home isAuthenticatedUser={this.isAuthenticatedUser} {...routerProps} setLogin={this.setLogin} /> }/>
                      <Route exact path="/profile" render={(routerProps) => <Profile {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser}/>}/> 
                      <Route exact path="/shoppingcart" render={(routerProps) => <ShoppingCart {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
-                     <Route exact path="/itemslist" render={(routerProps) => <ItemsList {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} item={this.state.item} handleSelectClick={this.handleSelectClick}/>}/> 
+    <Route exact path="/itemslist" render={(routerProps) => <ItemsList {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} item={this.state.item} handleSelectClick={this.handleSelectClick} randomItems={this.randomItems}/>} /> 
                      </Switch>
 
                
                 
+
+                           
               </div>
         
     )

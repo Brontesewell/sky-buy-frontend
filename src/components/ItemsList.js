@@ -1,10 +1,13 @@
 import React from 'react';
 import ItemCard from './ItemCard'
 import ItemInfo from './ItemInfo'
+import { searchForItems } from '../services/api'
+import { constructItems} from '../utilities/helpers'
  
 class ItemsList extends React.Component {
 
     componentDidMount() {
+        
         if (!localStorage.getItem("fire_token")) { 
          
             this.props.setLogin(false)
@@ -14,34 +17,39 @@ class ItemsList extends React.Component {
           } else {
       
             this.props.isAuthenticatedUser()
-           
+            this.props.randomItems()
           }
           console.log("ItemsList Mounted")
     }
 
     state = {
-        item: null
+        clickeditem: null
     }
+    
+
+
+   
+
 
     handleItemClick = (item) => {
         this.setState({
-            item: item
+            clickeditem: item
         })
     }
 
     handleBackButton = () => {
         this.setState({
-            item: null
+            clickeditem: null
         })
 	}
   render() {
-    console.log(this.props.items)
+    console.log(this.props.item)
 
     return (
          <div >
    <h2>Avaliable Items</h2>
    <div className='card-container'></div>
-        {this.state.item ?  <ItemInfo item={this.state.item} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : this.props.item.map((item) => <ItemCard key={Math.random()} item={item} handleItemClick={this.handleItemClick}/> )}
+        {this.state.clickeditem ?  <ItemInfo clickeditem={this.state.clickeditem} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : this.props.item.map((item) => <ItemCard key={Math.random()} item={item} handleItemClick={this.handleItemClick} filteredData={this.props.filteredData}/> )}
          </div>
     )
   }
