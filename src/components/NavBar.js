@@ -3,7 +3,7 @@ import { NavLink} from 'react-router-dom';
 import { Nav, Navbar, Form, Button, FormControl } from 'react-bootstrap';
 
 const NavBar = (props) => {
-  console.log(props.handleInputChange)
+  
   return (
    
     <div className="navbar">

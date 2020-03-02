@@ -10,6 +10,8 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.props.topIphoneCases()
+    this.props.topClothes()
+    this.props.topShoes()
   }
 
 
@@ -32,9 +34,15 @@ handleBackButton = () => {
     <h1 className="home-title">SkyBuy☁️</h1>
     <div className='iphonecase'>
     <h3 id="iphone-title">Top iPhone Cases:</h3>
-        {this.state.clickeditem ?  <ItemInfo clickeditem={this.state.clickeditem} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : this.props.item.map((item) => <ItemCard key={Math.random()} className="columnshome" item={item} handleItemClick={this.handleItemClick} />)}
+        {this.props.iphones.map((item) => <ItemCard key={Math.random()} className="columnshome" item={item} handleItemClick={this.handleItemClick} />)}
          </div>
+
      <h3 id="iphone-title">Top Clothes:</h3>
+     {this.props.clothes.map((item) => <ItemCard key={Math.random()} className="columnshome" item={item} handleItemClick={this.handleItemClick} />)}
+         
+     <h3 id="iphone-title">Top Shoes:</h3>
+     {this.props.shoes.map((item) => <ItemCard key={Math.random()} className="columnshome" item={item} handleItemClick={this.handleItemClick} />)}
+         
     </div>
     )
   }

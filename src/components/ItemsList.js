@@ -32,7 +32,7 @@ class ItemsList extends React.Component {
         })
 	}
   render() {
-    console.log(this.props.item)
+    
 
     return (
          <div >

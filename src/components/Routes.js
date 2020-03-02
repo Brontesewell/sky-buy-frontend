@@ -24,10 +24,13 @@ class Routes extends React.Component {
     selectedItems: [],
     item: [],
     query: "",
+    clothes: [],
+    iphones: [],
+    shoes: []
   }
 
   randomItems = () => {
-    console.log("items")
+    
     searchForItems("dog", 50).then(data => {
             
    
@@ -45,7 +48,7 @@ class Routes extends React.Component {
 
 
 topIphoneCases = () => {
-  console.log("items")
+ 
   searchForItems("iphone case", 4).then(data => {
 
   console.log(data["result"]["item"])    
@@ -53,14 +56,14 @@ topIphoneCases = () => {
   this.setState(prevState => {
   return {
    ...prevState,
-   item: constructItems(data["result"]["item"]), 
+   iphones: constructItems(data["result"]["item"]), 
   }
  })
   }).catch(err => console.log(err))
 }
 
 topClothes = () => {
-  console.log("items")
+
   searchForItems("clothes", 4).then(data => {
 
   console.log(data["result"]["item"])    
@@ -68,11 +71,27 @@ topClothes = () => {
   this.setState(prevState => {
   return {
    ...prevState,
-   item: constructItems(data["result"]["item"]), 
+   clothes: constructItems(data["result"]["item"]), 
   }
  })
   }).catch(err => console.log(err))
 }
+
+topShoes = () => {
+
+  searchForItems("shoes", 4).then(data => {
+
+  console.log(data["result"]["item"])    
+
+  this.setState(prevState => {
+  return {
+   ...prevState,
+   shoes: constructItems(data["result"]["item"]), 
+  }
+ })
+  }).catch(err => console.log(err))
+}
+
 
   handleInputChange = (event) => {
     //debugger
@@ -122,7 +141,7 @@ topClothes = () => {
                     {/* <route path="" render={(routerProps) => <Welcom />}></route> */}
                      {/* <route path="" render={(routerProps) => <Login />}></route>
                      <route path="" render={(routerProps) => <SignUp/>}></route>  */}
-                     <Route path="/home" render={(routerProps) => <Home topIphoneCases={this.topIphoneCases} item={this.state.item} handleSelectClick={this.handleSelectClick}/>}/>
+                     <Route path="/home" render={(routerProps) => <Home topIphoneCases={this.topIphoneCases} iphones={this.state.iphones} clothes={this.state.clothes} topClothes={this.topClothes} topShoes={this.topShoes} shoes={this.state.shoes} item={this.state.item} handleSelectClick={this.handleSelectClick}/>}/>
                      <Route path="/profile" render={(routerProps) => <Profile/>}/> 
                      <Route path="/shoppingcart" render={(routerProps) => <ShoppingCart selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
                      {/* <route path="/itemsearch" render={(routerProps) => <itemsSearch/>}></route>  */}
