@@ -1,41 +1,54 @@
 import React from 'react';
 import '../App.css';
 import Routes from './Routes';
-import {searchForItems} from '../services/api.js'
-import {constructItems} from '../utilities/helpers.js'
+import withFirebaseAuth from 'react-with-firebase-auth'
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import firebaseConfig from '../firebaseConfig';
+import {BrowserRouter as Router} from 'react-router-dom'
 
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+const firebaseAppAuth = firebaseApp.auth();
+const gProvider = new firebase.auth.GoogleAuthProvider();
+gProvider.setCustomParameters({
+  prompt: 'select_account'
+}) 
+const providers = {
+  googleProvider: gProvider 
+};
 
 class App extends React.Component {
-  state = {
-    ownedItems: [
-      { id: 1, title: 'Computer' },
-      { id: 2, title: 'iPhone' },
-      { id: 3, title: 'Head Phones' }
-    ],
-     searchedItems: []
+ 
+
+  componentDidMount() {
+    
+     // check to see if token, if so, authenticate
+     console.log("App mounted")
+       
+      
+
+
   }
 
-  // componentDidMount() {
-  //   searchForItems("cat", 1).then(data => this.setState(prevState => {
-  //    return {
-  //     ...prevState,
-  //     searchedItems: constructItems(data["result"]["item"]) 
-  //    } 
-
-  //   }))
-  // } 
-
   render() {
-    console.log(this.state.items)
-    return(  
-      
-    <div> 
-      
-                < Routes />
-              </div>
-              
+   
+    return (
+    <div>
+     <Router>
+     <Routes signInWithGoogle={this.props.signInWithGoogle} user={this.props.user} signOut={this.props.signOut} />
+     </Router>
+     
+
+    </div>
+
+
     )
   }
 }
 
-export default App;
+
+export default withFirebaseAuth({
+  providers,
+  firebaseAppAuth,
+})(App);

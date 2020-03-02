@@ -1,8 +1,10 @@
 import React from 'react';
-import { NavLink} from 'react-router-dom';
+import { NavLink, withRouter} from 'react-router-dom';
 import { Nav, Navbar, Form, Button, FormControl } from 'react-bootstrap';
 
-const NavBar = () => {
+
+const NavBar = (props) => {
+  console.log("navbar props", props )
   return (
    
     <div className="navbar">
@@ -14,11 +16,17 @@ const NavBar = () => {
       <NavLink className="nav-link" to="/itemslist">Items List</NavLink>
       <NavLink className="nav-link" to="/profile">Profile </NavLink>
       <NavLink className="nav-link" to="/shoppingcart">Shopping Cart</NavLink>
-      <NavLink className="nav-link" to="/welcome">Logout </NavLink>
+      <NavLink className="nav-link" to="/" onClick={() => {
+           
+           // logout
+           props.handleLogOut()
+           // redirect 
+           
+        }}> Logout </NavLink>
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-primary">Search</Button>
+      <Button variant="outline-primary" >Search</Button>
     </Form>
   </Navbar>
   </div>
@@ -26,7 +34,7 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
 
 
  {/* <NavLink to="/home">Home</NavLink>

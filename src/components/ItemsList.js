@@ -4,6 +4,21 @@ import ItemInfo from './ItemInfo'
  
 class ItemsList extends React.Component {
 
+    componentDidMount() {
+        if (!localStorage.getItem("fire_token")) { 
+         
+            this.props.setLogin(false)
+            this.props.history.push("/")
+               
+      
+          } else {
+      
+            this.props.isAuthenticatedUser()
+           
+          }
+          console.log("ItemsList Mounted")
+    }
+
     state = {
         item: null
     }
