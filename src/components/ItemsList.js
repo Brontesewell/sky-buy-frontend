@@ -8,6 +8,8 @@ class ItemsList extends React.Component {
         item: null
     }
 
+    
+
     handleItemClick = (item) => {
         this.setState({
             item: item
@@ -26,7 +28,7 @@ class ItemsList extends React.Component {
          <div >
    <h2>Avaliable Items</h2>
    <div className='card-container'></div>
-        {this.state.item ?  <ItemInfo item={this.state.item} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : this.props.item.map((item) => <ItemCard key={Math.random()} item={item} handleItemClick={this.handleItemClick}/> )}
+        {this.state.item ?  <ItemInfo item={this.state.item} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : this.props.item.map((item) => <ItemCard key={Math.random()} item={item} handleItemClick={this.handleItemClick} filteredData={this.props.filteredData}/> )}
          </div>
     )
   }

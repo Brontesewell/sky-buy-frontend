@@ -17,6 +17,4 @@ export const searchForItems = (query, max_results) => {
 
     return fetch(url, configuration).then(resp => resp.json())
 
-
-   
 } 

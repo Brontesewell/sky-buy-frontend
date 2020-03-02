@@ -2,7 +2,8 @@ import React from 'react';
 import { NavLink} from 'react-router-dom';
 import { Nav, Navbar, Form, Button, FormControl } from 'react-bootstrap';
 
-const NavBar = () => {
+const NavBar = (props) => {
+  console.log(props.handleInputChange)
   return (
    
     <div className="navbar">
@@ -17,8 +18,8 @@ const NavBar = () => {
       <NavLink className="nav-link" to="/welcome">Logout </NavLink>
     </Nav>
     <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-primary">Search</Button>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(event) => props.handleInputChange(event)}/>
+      <Button variant="outline-primary" onClick={props.buttonClick}>Search</Button>
     </Form>
   </Navbar>
   </div>

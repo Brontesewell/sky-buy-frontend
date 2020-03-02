@@ -8,8 +8,12 @@ class ItemsCard extends React.Component {
         
         <div>
             <div className="item-info">
-        <h1>MORE INFO ON PROUDUCT</h1>
-    <h3>{this.props.item.title}</h3>
+        <h1>MORE INFO ON PRODUCT</h1>
+    <h3>{this.props.item.name}</h3>
+    <h4>Price: ${this.props.item.price}</h4>
+    <h4>delivery fee: ${this.props.item.delivery_fee}</h4>
+    <img id="img-cards" alt="" src={this.props.item.pic}></img>
+    <br></br>
     <Button className="btn btn-secondary" onClick={() => this.props.handleBackButton()}>Back</Button>
     <Button className="ui button fluid" onClick={() => this.props.handleSelectClick(this.props.item)}> Add to Shopping Cart </Button>
     </div>
