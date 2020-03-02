@@ -22,11 +22,7 @@ const taobaoHeaders = {
 class Routes extends React.Component {
   state = {
     selectedItems: [],
-    item: [
-        // { id: 1, name: 'Computer', price: 15, pic: 'https://images.unsplash.com/photo-1525385444278-b7968e7e28dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' },
-        // { id: 2, name: 'iPhone', price: 10, pic: 'https://images.unsplash.com/photo-1555421689-d68471e189f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' },
-        // { id: 3, name: 'Head Phones', price: 20, pic: 'https://images.unsplash.com/photo-1562770584-eaf50b017307?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2663&q=80' }
-     ],
+    item: [],
     query: "",
   }
 
@@ -43,13 +39,39 @@ class Routes extends React.Component {
      item: constructItems(data["result"]["item"]), 
     }
 
-
    })
-    
-    
-    
-    
     }).catch(err => console.log(err))
+}
+
+
+topIphoneCases = () => {
+  console.log("items")
+  searchForItems("iphone case", 4).then(data => {
+
+  console.log(data["result"]["item"])    
+
+  this.setState(prevState => {
+  return {
+   ...prevState,
+   item: constructItems(data["result"]["item"]), 
+  }
+ })
+  }).catch(err => console.log(err))
+}
+
+topClothes = () => {
+  console.log("items")
+  searchForItems("clothes", 4).then(data => {
+
+  console.log(data["result"]["item"])    
+
+  this.setState(prevState => {
+  return {
+   ...prevState,
+   item: constructItems(data["result"]["item"]), 
+  }
+ })
+  }).catch(err => console.log(err))
 }
 
   handleInputChange = (event) => {
@@ -69,12 +91,6 @@ class Routes extends React.Component {
        item: constructItems(data["result"]["item"]), 
       }}))
   }
-
-//   updateState = (newItems) => {
-//     this.setState({
-//       item: newItems
-//     })
-// }
 
 
 
@@ -106,7 +122,7 @@ class Routes extends React.Component {
                     {/* <route path="" render={(routerProps) => <Welcom />}></route> */}
                      {/* <route path="" render={(routerProps) => <Login />}></route>
                      <route path="" render={(routerProps) => <SignUp/>}></route>  */}
-                     <Route path="/home" render={(routerProps) => <Home />}/>
+                     <Route path="/home" render={(routerProps) => <Home topIphoneCases={this.topIphoneCases} item={this.state.item} handleSelectClick={this.handleSelectClick}/>}/>
                      <Route path="/profile" render={(routerProps) => <Profile/>}/> 
                      <Route path="/shoppingcart" render={(routerProps) => <ShoppingCart selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
                      {/* <route path="/itemsearch" render={(routerProps) => <itemsSearch/>}></route>  */}

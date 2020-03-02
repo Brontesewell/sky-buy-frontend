@@ -12,7 +12,7 @@ const NavBar = (props) => {
     <Navbar.Brand id="nav-bar-title">SkyBuy☁️</Navbar.Brand>
     <Nav className="mr-auto">
       <NavLink className="nav-link" to="/home">Home</NavLink>
-      <NavLink className="nav-link" to="/itemslist">Items List</NavLink>
+      <NavLink className="nav-link" to="/itemslist">Find Items Now!</NavLink>
       <NavLink className="nav-link" to="/profile">Profile </NavLink>
       <NavLink className="nav-link" to="/shoppingcart">Shopping Cart</NavLink>
       <NavLink className="nav-link" to="/welcome">Logout </NavLink>
