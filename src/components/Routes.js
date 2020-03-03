@@ -115,12 +115,78 @@ topShoes = () => {
 
   handleSelectClick = (item) => {
     
-    this.setState(prevState => ({
+    // check if item is already in SelectedItems.
+    // if it is, it will have a quantity key, with a value from 1..n
+      // just increment that value by one
+    // if its not already in Selected Items, add it to selected items with a quantity key, with a value of 1
+       
+    //item = {name: "jason"}
+    // newItem, with additional key
+     // newItem = {...item, quantity: item.quantity + 1} 
+
+     const found = this.state.selectedItems.find(i => i.external_id === item.external_id)
+      
+      if (found) {
+        this.setState(prevState => ({
+          ...prevState,
+          selectedItems: prevState.selectedItems.map(i => {
+            if (i.external_id === item.external_id) {
+              return { ...i, quantity: i.quantity + 1}
+            } else {
+              return i
+            }
+          })
+        }))} else {
+          //debugger
+          this.setState(prevState => {
+
+       return {...prevState,
+            selectedItems: [...prevState.selectedItems, {
+              ...item, quantity: 1
+            }]
+        }
+      }, () => console.log("new value for selectedState", this.state.selectedItems))
+      }
+    }
+
+
+      decreaseSelectedItems = (item) => {
+
+        // check to see if item is in selectedItems
+          // if item isnt in selectedIItems, do nothing
+          // if item is in selectedItems
+            // if its quantity is one, remove the item from selectedItems
+            // else its quantity is more than one, decrease its value by 1      
+            const found = this.state.selectedItems.find(i => i.external_id === item.id)
+            if (found) {
+              if (item.quantity > 1) {
+              this.setState(prevState => ({
+                ...prevState,
+                selectedItems: prevState.map(i => {
+                  if (i.external_id === item.external_id) {
+                    return { ...i, quantity: i.quantity - 1}
+                  } else {
+                    return i
+                  }
+                })
+              })
+              )
+            }
+            else {
+              this.setState(prevState => ({
+                ...prevState,
+                selectedItems: prevState.filter(i => i.external_id !== item.external_id )
+              }))
+            } 
+            
+            }
+
+        const newSelected = this.state.selectedItems.filter(piece => piece !== item)
+        this.setState(prevState => ({
             ...prevState,
-            selectedItems: [...prevState.selectedItems, item]
-    
+            selectedItems: newSelected
         }))
-  }
+    }
 
 
   removeSelectedItems = (item) => {
