@@ -30,9 +30,6 @@ class ItemsList extends React.Component {
     
 
 
-<<<<<<< HEAD
-   
-=======
     incrementQuantity = () =>{
         
         console.log(this)
@@ -60,12 +57,8 @@ class ItemsList extends React.Component {
     })
     }
   
-    componentDidMount() {
-        
-        this.props.randomItems()
-    }
+  
 
->>>>>>> 8ef6b1387cd380a3f149228e6a198f0d39f50d75
 
 
     handleItemClick = (item) => {
