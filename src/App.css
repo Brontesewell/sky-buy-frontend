@@ -76,19 +76,6 @@ background-size: cover;
 }
 
 
-#button-div{ 
-  float:right;
-  width:25%; 
-  height:200px;
-  margin-top: 70px;
-}
-
-#price {
-  float:left;
-  width:25%; 
-  height:200px;
-  margin-top: 70px;
-}
 
 #title-itemslist {
   text-align: center;
@@ -108,12 +95,7 @@ background-size: cover;
   font-weight: bold;
 }
 
-#item-card-div {
-  float:left;
-  width:50%; 
-  height:200px;
 
-}
 
 
 .card-container, .selectedItems {
@@ -155,9 +137,9 @@ background-size: cover;
 }
 
 .iphonecase {
-float: left;
-width: 50%;
-border-style: double;
+  float: left;
+  width: 50%;
+  border-style: double;
 border-color: lightgrey;
 }
 
@@ -194,24 +176,10 @@ border-color: lightgrey;
   margin-left: 30px;
 }
 
-.shopping-cart {
-  text-align: center;
-}
 
-#quantity{
-  float: left;
-  width: 10%
-}
 
 #img-cards {
   height: 40%;
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#img-card-shopping {
-  height: 60%;
   width: 40%;
   margin-left: auto;
   margin-right: auto;
@@ -230,4 +198,53 @@ border-color: lightgrey;
   font-size: 200px;
   text-align: center;
   margin-top: 15%;
+}
+
+.shopping-cart {
+  text-align: center;
+}
+
+.shopping-div {
+  border-style: double;
+  border-color: lightgrey;
+  height: 250px;
+}
+
+#itemnameshop{
+  font-size: 25px;
+}
+
+#item-card-div {
+  float:left;
+  width:34%; 
+  height:200px;
+  padding-top: 20px;
+}
+
+#img-card-shopping {
+  height: 60%;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#button-div{ 
+  float:right;
+  width:20%; 
+  height:200px;
+  padding-top: 70px;
+}
+
+#price {
+  float:left;
+  width:20%; 
+  height:200px;
+  padding-top: 10px;
+}
+
+#quantity{
+  float: left;
+  padding-top: 70px;
+  width: 20%;
+  height:200px;
 }
