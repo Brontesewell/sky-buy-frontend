@@ -13,6 +13,9 @@ class Login extends Component {
       
       
       return <div>
+
+<h1 className="login-title">SkyBuy☁️</h1>
+<br></br>
            { !this.props.auth.loggedIn && <button onClick={() => 
             {
               
@@ -31,7 +34,7 @@ class Login extends Component {
               }).catch(err => console.log(err))
             
             
-            }   }>Sign In With Google</button>}  
+            }   } id="login-button" class="btn btn-outline-primary btn-lg" >Sign In With Google</button>}  
       </div>
   }
 
