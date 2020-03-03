@@ -105,6 +105,16 @@ width: 50%;
   text-align: center;
 }
 
+/* .shopping-div{
+  float: left;
+  width: 30%;
+} */
+
+#quantity{
+  float: left;
+  width: 10%
+}
+
 #img-cards {
   height: 40%;
   width: 40%;

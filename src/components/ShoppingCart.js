@@ -10,7 +10,7 @@ class ShoppingCart extends React.Component {
     <div className="shopping-cart">
            <h1>Shopping Cart:</h1> 
       <div className="shopping-cart">
-    {this.props.selectedItems.map(item => <div className="shopping-div"> <div id="item-card-div"><h2>{item.name}</h2> <img id="img-card-shopping"src={item.pic}></img></div> <div id="price"><h3>Price: ${item.price}</h3></div>  <div id="button-div"> <Button className="ui button fluid" onClick={() => this.props.removeSelectedItems(item)}> Delete Item </Button></div> </div>)}
+    {this.props.selectedItems.map(item => <div className="shopping-div"> <div id="item-card-div"><h2>{item.name}</h2> <img id="img-card-shopping"src={item.pic}></img></div>  <div id="quantity"><h3>Quantity:{item.quantity}</h3></div>   <div id="price"><h3>Price: ${item.price}</h3></div>  <div id="button-div"> <Button className="ui button fluid" onClick={() => this.props.removeSelectedItems(item)}> Delete Item </Button></div> </div>)}
           </div>
     <h3> Total Price: ${this.props.selectedItems.map(item => item.price)}</h3>
           </div>
