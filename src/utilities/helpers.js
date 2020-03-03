@@ -15,3 +15,7 @@ export function constructItem(itemData){
   export function constructItems(itemData) {
     return itemData.map(item => constructItem(item))
   }
+
+  export function extractItemsFromPurchases(purchases) {
+    return purchases.map(purchase => purchase.items).flat()
+  }

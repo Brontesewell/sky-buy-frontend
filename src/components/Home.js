@@ -1,18 +1,36 @@
 import React from 'react';
 import ItemCard from './ItemCard'
 import ItemInfo from './ItemInfo'
+import {authInCompDidMount} from '../services/api'
  
 class Home extends React.Component {
+
+  componentDidMount() {
+    if (!localStorage.getItem("fire_token")) { 
+         
+      this.props.setLogin(false)
+      this.props.history.push("/")
+         
+
+    } else {
+
+      this.props.isAuthenticatedUser()
+      this.props.topIphoneCases()
+      this.props.topClothes()
+      this.props.topShoes()
+     
+    }
+    console.log("Home Mounted")
+   
+  }
+
+ 
 
   state = {
     clickeditem: null
   }
 
-  componentDidMount() {
-    this.props.topIphoneCases()
-    this.props.topClothes()
-    this.props.topShoes()
-  }
+  
 
 
 handleItemClick = (item) => {

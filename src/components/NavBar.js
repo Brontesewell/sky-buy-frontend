@@ -1,9 +1,13 @@
 import React from 'react';
-import { NavLink} from 'react-router-dom';
+import { NavLink, withRouter} from 'react-router-dom';
 import { Nav, Navbar, Form, Button, FormControl } from 'react-bootstrap';
 
-const NavBar = (props) => {
+
+
   
+const NavBar = (props) => {
+  console.log("navbar props", props )
+  console.log(props.handleInputChange)
   return (
    
     <div className="navbar">
@@ -15,7 +19,13 @@ const NavBar = (props) => {
       <NavLink className="nav-link" to="/itemslist">Find Items Now!</NavLink>
       <NavLink className="nav-link" to="/profile">Profile </NavLink>
       <NavLink className="nav-link" to="/shoppingcart">Shopping Cart</NavLink>
-      <NavLink className="nav-link" to="/welcome">Logout </NavLink>
+      <NavLink className="nav-link" to="/" onClick={() => {
+           
+           // logout
+           props.handleLogOut()
+           // redirect 
+           
+        }}> Logout </NavLink>
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(event) => props.handleInputChange(event)}/>
@@ -27,7 +37,7 @@ const NavBar = (props) => {
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
 
 
  {/* <NavLink to="/home">Home</NavLink>

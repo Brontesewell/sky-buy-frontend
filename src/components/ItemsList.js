@@ -6,6 +6,23 @@ import { constructItems} from '../utilities/helpers'
  
 class ItemsList extends React.Component {
 
+    componentDidMount() {
+
+       
+        
+        if (!localStorage.getItem("fire_token")) { 
+         
+            this.props.setLogin(false)
+            this.props.history.push("/")
+               
+      
+          } else {
+      
+            this.props.isAuthenticatedUser()
+            this.props.randomItems()
+          }
+          console.log("ItemsList Mounted")
+    }
 
     state = {
         clickeditem: null
@@ -40,10 +57,7 @@ class ItemsList extends React.Component {
     })
     }
   
-    componentDidMount() {
-        
-        this.props.randomItems()
-    }
+  
 
 
 
