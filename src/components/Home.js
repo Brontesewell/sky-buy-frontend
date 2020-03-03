@@ -62,7 +62,7 @@ handleBackButton = () => {
 
      <div className='shoes'>
          <h3 id="home-title">Top Shoes:</h3>
-         {this.props.shoes.map((item) => <div className='card'> <h5>{this.props.item.name}</h5> <img id="img-cards" alt="" src={this.props.item.pic}></img> <h5> Price: ${this.props.item.price}</h5> </div>)}
+         {this.props.shoes.map((item) => <div key={Math.random()} className='card'> <h5>{this.props.item.name}</h5> <img id="img-cards" alt="" src={this.props.item.pic}></img> <h5> Price: ${this.props.item.price}</h5> </div>)}
          </div>
 
     </div>

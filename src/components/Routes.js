@@ -26,9 +26,6 @@ class Routes extends React.Component {
   state = {
     selectedItems: [],
     item: [
-        { id: 1, title: 'Computer', price: 15, img_url: 'https://images.unsplash.com/photo-1525385444278-b7968e7e28dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' },
-        { id: 2, title: 'iPhone', price: 10, img_url: 'https://images.unsplash.com/photo-1555421689-d68471e189f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' },
-        { id: 3, title: 'Head Phones', price: 20, img_url: 'https://images.unsplash.com/photo-1562770584-eaf50b017307?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2663&q=80' }
     ],
     purchasedItems: [],
     auth: {
@@ -316,7 +313,7 @@ topShoes = () => {
                      <Route exact path="/" render={(routerProps) => <Login setLogin={this.setLogin} {...routerProps} handleLogin={this.handleLogin} signOut={this.props.signOut} user={this.props.user} auth={this.state.auth} signInWithGoogle={this.props.signInWithGoogle} />}/>
                      <Route exact path="/home" render={(routerProps) => <Home topIphoneCases={this.topIphoneCases} iphones={this.state.iphones} clothes={this.state.clothes} topClothes={this.topClothes} topShoes={this.topShoes} shoes={this.state.shoes} item={this.state.item} handleSelectClick={this.handleSelectClick} isAuthenticatedUser={this.isAuthenticatedUser} {...routerProps} setLogin={this.setLogin} /> }/>
                      <Route exact path="/profile" render={(routerProps) => <Profile {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser}/>}/> 
-                     <Route exact path="/shoppingcart" render={(routerProps) => <ShoppingCart {...routerProps} setLogin={this.setLogin} selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
+                     <Route exact path="/shoppingcart" render={(routerProps) => <ShoppingCart {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
     <Route exact path="/itemslist" render={(routerProps) => <ItemsList {...routerProps} decreaseSelectedItems={this.decreaseSelectedItems} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} item={this.state.item} handleSelectClick={this.handleSelectClick} randomItems={this.randomItems}/>} /> 
                      </Switch>
 
