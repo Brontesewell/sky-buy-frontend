@@ -6,10 +6,46 @@
   width: 23.5%;
   padding: 5px;
   margin: 10px;
-  height: 19rem;
+  height: 19rem
 }
 
 .card:hover {
+  box-shadow: 0 8px 16px 0 black;
+}
+
+.shoes-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  text-align: center;
+  float: left;
+  width: 15.3%;
+  padding: 5px;
+  margin: 10px;
+  height: 15rem;
+}
+
+.shoes-card:hover {
+  box-shadow: 0 8px 16px 0 black;
+}
+
+.home-sub-title{
+text-align: center;
+font-weight: bold;
+font-size: 40px;
+}
+
+.card-shop {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  text-align: center;
+  float: left;
+  width: 47%;
+  padding: 5px;
+  margin: 10px;
+  height: 15rem;
+}
+
+.card-shop:hover {
   box-shadow: 0 8px 16px 0 black;
 }
 
@@ -82,12 +118,24 @@
 .iphonecase {
 float: left;
 width: 50%;
+border-style: double;
+border-color: lightgrey;
 }
 
 .clothes {
   float: right;
   width: 50%;
+  border-style: double;
+border-color: lightgrey;
 }
+
+.shoes {
+  float: right;
+  width: 100%;
+  border-style: double;
+border-color: lightgrey;
+}
+
 
 #home-title {
   margin-left: 20px;

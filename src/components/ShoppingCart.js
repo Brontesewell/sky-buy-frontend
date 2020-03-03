@@ -10,8 +10,7 @@ class ShoppingCart extends React.Component {
        
           this.props.setLogin(false)
           this.props.history.push("/")
-             
-    
+            
         } else {
     
           this.props.isAuthenticatedUser()
