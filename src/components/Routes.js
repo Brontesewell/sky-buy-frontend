@@ -27,6 +27,7 @@ class Routes extends React.Component {
     selectedItems: [],
     item: [
     ],
+    profile: {first_name: "", last_name: "", address: ""},
     purchasedItems: [],
     auth: {
       email: "",
@@ -48,10 +49,17 @@ class Routes extends React.Component {
   isAuthenticatedUser = () => {
     authenticate(localStorage.getItem("fire_token")).then(resp => {
       if (!resp.errors) {  // authenticated
+        console.log("auth data: ", resp)
         this.setState(prevState => {
           return {
             ...prevState,
             purchasedItems: extractItemsFromPurchases(resp.purchases),
+            profile: {
+              first_name: resp.first_name,
+              last_name: resp.last_name,
+              address: resp.address
+            },
+
             auth: {
               ...prevState.auth,
               email: resp.email,
@@ -82,6 +90,11 @@ class Routes extends React.Component {
       return {
         ...prevState,
         purchasedItems: extractItemsFromPurchases(resp.purchases),
+        profile: {
+          first_name: resp.first_name,
+          last_name: resp.last_name,
+          address: resp.address
+        }, 
         auth: {
           ...prevState.auth,
           email: resp.email,
@@ -122,6 +135,7 @@ class Routes extends React.Component {
         return {
           ...prevState,
           purchasedItems: [],
+          profile: [],
           item: [],
           selectedItems: [],
           auth: {
@@ -308,11 +322,11 @@ topShoes = () => {
     return (  
         
               <div> 
-                 { this.state.auth.loggedIn ? < NavBar />: null}
+                 { this.state.auth.loggedIn ? < NavBar handleLogOut={this.handleLogOut} />: null}
                      <Switch>
                      <Route exact path="/" render={(routerProps) => <Login setLogin={this.setLogin} {...routerProps} handleLogin={this.handleLogin} signOut={this.props.signOut} user={this.props.user} auth={this.state.auth} signInWithGoogle={this.props.signInWithGoogle} />}/>
                      <Route exact path="/home" render={(routerProps) => <Home topIphoneCases={this.topIphoneCases} iphones={this.state.iphones} clothes={this.state.clothes} topClothes={this.topClothes} topShoes={this.topShoes} shoes={this.state.shoes} item={this.state.item} handleSelectClick={this.handleSelectClick} isAuthenticatedUser={this.isAuthenticatedUser} {...routerProps} setLogin={this.setLogin} /> }/>
-                     <Route exact path="/profile" render={(routerProps) => <Profile {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser}/>}/> 
+                     <Route exact path="/profile" render={(routerProps) => <Profile purchasedItems={this.state.purchasedItems} profile={this.state.profile} {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser}/>}/> 
                      <Route exact path="/shoppingcart" render={(routerProps) => <ShoppingCart {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
     <Route exact path="/itemslist" render={(routerProps) => <ItemsList {...routerProps} decreaseSelectedItems={this.decreaseSelectedItems} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} item={this.state.item} handleSelectClick={this.handleSelectClick} randomItems={this.randomItems} handleInputChange={this.handleInputChange} query={this.state.query} buttonClick={this.buttonClick} handleLogOut={this.handleLogOut} />} /> 
                      </Switch>

@@ -34,7 +34,7 @@ class Login extends Component {
               }).catch(err => console.log(err))
             
             
-            }   } id="login-button" class="btn btn-outline-primary btn-lg" >Sign In With Google</button>}  
+            }   } id="login-button" className="btn btn-outline-primary btn-lg" >Sign In With Google</button>}  
       </div>
   }
 

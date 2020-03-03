@@ -20,9 +20,12 @@ class Profile extends React.Component {
   
 
   render() {
+    console.log("profile props in render method: ", this.props)
+    const {first_name, last_name, address} = this.props.profile
+
     return (
     <div>
-    <h1>Hello @User</h1>
+  <h1>Hello @{first_name}</h1>
 
     <h4>Purchases:</h4>
     </div>
