@@ -157,12 +157,12 @@ topShoes = () => {
           // if item is in selectedItems
             // if its quantity is one, remove the item from selectedItems
             // else its quantity is more than one, decrease its value by 1      
-            const found = this.state.selectedItems.find(i => i.external_id === item.id)
+            const found = this.state.selectedItems.find(i => i.external_id === item.external_id)
             if (found) {
               if (item.quantity > 1) {
               this.setState(prevState => ({
                 ...prevState,
-                selectedItems: prevState.map(i => {
+                selectedItems: prevState.selectedItems.map(i => {
                   if (i.external_id === item.external_id) {
                     return { ...i, quantity: i.quantity - 1}
                   } else {
@@ -175,7 +175,7 @@ topShoes = () => {
             else {
               this.setState(prevState => ({
                 ...prevState,
-                selectedItems: prevState.filter(i => i.external_id !== item.external_id )
+                selectedItems: prevState.selectedItems.filter(i => i.external_id !== item.external_id )
               }))
             } 
             
@@ -211,7 +211,7 @@ topShoes = () => {
                      <Route path="/profile" render={(routerProps) => <Profile/>}/> 
                      <Route path="/shoppingcart" render={(routerProps) => <ShoppingCart selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
                      {/* <route path="/itemsearch" render={(routerProps) => <itemsSearch/>}></route>  */}
-                     <Route path="/itemslist" render={(routerProps) => <ItemsList item={this.state.item} handleSelectClick={this.handleSelectClick} randomItems={this.randomItems}/>}/> 
+                     <Route path="/itemslist" render={(routerProps) => <ItemsList item={this.state.item} decreaseSelectedItems={this.decreaseSelectedItems} handleSelectClick={this.handleSelectClick} randomItems={this.randomItems}/>}/> 
                      {/* <route path="" render={(routerProps) => <ItemsCard/>}></route>  */}
                      {/* <route path="" render={(routerProps) => <itemInfo/>}></route>  */}
 

@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
  
 class ItemsCard extends React.Component {
   render() {
-    debugger
+    //debugger
     return (
         
         <div>
@@ -21,14 +21,20 @@ class ItemsCard extends React.Component {
       Add To Shopping Cart: 
     <Button className="ui button fluid" onClick={() => {
       
-      // increment by 1
+      // increment by 1, call parent function
+      this.props.incrementQuantity()
      
       this.props.handleSelectClick(this.props.clickeditem)
     
     
     }}> + </Button>
     {this.props.clickeditem.quantity ? this.props.clickeditem.quantity : 0}
-    <Button className="ui button fluid" > - </Button>
+    <Button className="ui button fluid" onClick={() => {
+      
+      this.props.decrementQuantity()
+
+      this.props.decreaseSelectedItems(this.props.clickeditem)
+    }} > - </Button>
     </div>
 
     </div>
