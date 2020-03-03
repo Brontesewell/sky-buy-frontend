@@ -79,7 +79,17 @@
   text-align: center;
 }
 
-#iphone-title {
+.iphonecase {
+float: left;
+width: 50%;
+}
+
+.clothes {
+  float: right;
+  width: 50%;
+}
+
+#home-title {
   margin-left: 20px;
   font-weight: bold;
   font-size: 40px;

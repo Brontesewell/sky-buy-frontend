@@ -7,6 +7,8 @@ import { constructItems} from '../utilities/helpers'
 class ItemsList extends React.Component {
 
     componentDidMount() {
+
+       
         
         if (!localStorage.getItem("fire_token")) { 
          
@@ -43,7 +45,7 @@ class ItemsList extends React.Component {
         })
 	}
   render() {
-    console.log(this.props.item)
+    
 
     return (
          <div >

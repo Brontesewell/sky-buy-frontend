@@ -16,6 +16,8 @@ class Home extends React.Component {
 
       this.props.isAuthenticatedUser()
       this.props.topIphoneCases()
+      this.props.topClothes()
+      this.props.topShoes()
      
     }
     console.log("Home Mounted")
@@ -28,6 +30,7 @@ class Home extends React.Component {
     clickeditem: null
   }
 
+  
 
 
 handleItemClick = (item) => {
@@ -48,10 +51,20 @@ handleBackButton = () => {
     <div>
     <h1 className="home-title">SkyBuy☁️</h1>
     <div className='iphonecase'>
-    <h3 id="iphone-title">Top iPhone Cases:</h3>
-        {this.state.clickeditem ?  <ItemInfo clickeditem={this.state.clickeditem} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : this.props.item.map((item) => <ItemCard key={Math.random()} className="columnshome" item={item} handleItemClick={this.handleItemClick} />)}
+    <h3 id="home-title">Top iPhone Cases:</h3>
+            {this.props.iphones.map((item) => <ItemCard key={Math.random()} className="columnshome" item={item} handleItemClick={this.handleItemClick} />)}
+    </div>
+
+    <div className='clothes'>
+        <h3 id="home-title">Top Clothes:</h3>
+         {this.props.clothes.map((item) => <ItemCard key={Math.random()} className="columnshome" item={item} handleItemClick={this.handleItemClick} />)}
+     </div>
+
+     <div className='shoes'>
+         <h3 id="home-title">Top Shoes:</h3>
+         {this.props.shoes.map((item) => <div className='card'> <h5>{this.props.item.name}</h5> <img id="img-cards" alt="" src={this.props.item.pic}></img> <h5> Price: ${this.props.item.price}</h5> </div>)}
          </div>
-     <h3 id="iphone-title">Top Clothes:</h3>
+
     </div>
     )
   }

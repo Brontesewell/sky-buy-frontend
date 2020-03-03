@@ -22,7 +22,9 @@ class Profile extends React.Component {
   render() {
     return (
     <div>
-    <h1>Profile Page</h1>
+    <h1>Hello @User</h1>
+
+    <h4>Purchases:</h4>
     </div>
     )
   }
