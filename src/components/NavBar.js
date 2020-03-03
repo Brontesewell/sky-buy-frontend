@@ -12,7 +12,7 @@ const NavBar = (props) => {
    
     <div className="navbar">
       <div id="navvy">
-         <Navbar bg="light" variant="light">
+         <Navbar id="background-nav" variant="light">
     <Navbar.Brand id="nav-bar-title">SkyBuy☁️</Navbar.Brand>
     <Nav className="mr-auto">
       <NavLink className="nav-link" to="/home">Home</NavLink>
@@ -27,10 +27,10 @@ const NavBar = (props) => {
            
         }}> Logout </NavLink>
     </Nav>
-    <Form inline>
+    {/* <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(event) => props.handleInputChange(event)}/>
       <Button variant="outline-primary" onClick={props.buttonClick}>Search</Button>
-    </Form>
+    </Form> */}
   </Navbar>
   </div>
     </div>

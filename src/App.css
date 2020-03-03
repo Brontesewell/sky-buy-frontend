@@ -6,7 +6,8 @@
   width: 23.5%;
   padding: 5px;
   margin: 10px;
-  height: 19rem
+  height: 19rem;
+  background-color: white;
 }
 
 .card:hover {
@@ -22,6 +23,7 @@
   padding: 5px;
   margin: 10px;
   height: 15rem;
+  background-color: white;
 }
 
 .shoes-card:hover {
@@ -43,10 +45,21 @@ font-size: 40px;
   padding: 5px;
   margin: 10px;
   height: 15rem;
+  background-color: white;
 }
 
 .card-shop:hover {
   box-shadow: 0 8px 16px 0 black;
+}
+
+.navbar {
+  height: 90px;
+  margin: -8px;
+}
+
+.vsc-initialized {
+  background-color:#e6faff;
+
 }
 
 .columnshome{
@@ -54,6 +67,12 @@ font-size: 40px;
   width: 25%;
   padding: 10px;
   height: 300px;
+}
+
+#background-nav {
+  background-image: url(https://images.unsplash.com/photo-1499346030926-9a72daac6c63?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+background-repeat: no-repeat;
+background-size: cover;
 }
 
 
@@ -69,6 +88,24 @@ font-size: 40px;
   width:25%; 
   height:200px;
   margin-top: 70px;
+}
+
+#title-itemslist {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: blue;
+}
+
+.search-box {
+  text-align: center;
+  width: 100%;
+}
+
+#recommended-itemslist {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 #item-card-div {
@@ -106,6 +143,8 @@ font-size: 40px;
   color: blue;
   font-weight: bold;
   font-size: 40px;
+  padding-left: 25px;
+  padding-top: 10px;
 }
 
 .home-title {
@@ -146,17 +185,18 @@ border-color: lightgrey;
 
 
 .mr-auto {
-  font-size: 20px;
+  font-size: 23px;
+  font-weight: 600;
+  padding-top: 10px;
+}
+
+.nav-link {
+  margin-left: 30px;
 }
 
 .shopping-cart {
   text-align: center;
 }
-
-/* .shopping-div{
-  float: left;
-  width: 30%;
-} */
 
 #quantity{
   float: left;
