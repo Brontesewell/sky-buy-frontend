@@ -30,7 +30,42 @@ class ItemsList extends React.Component {
     
 
 
+<<<<<<< HEAD
    
+=======
+    incrementQuantity = () =>{
+        
+        console.log(this)
+        this.setState(prevState => {
+           return { clickeditem: {
+                ...prevState.clickeditem,
+                quantity: prevState.clickeditem.quantity ? prevState.clickeditem.quantity + 1 : 1
+            }
+
+        } 
+    })
+    }
+
+
+    decrementQuantity = () =>{
+        
+        console.log(this)
+        this.setState(prevState => {
+           return { clickeditem: {
+                ...prevState.clickeditem,
+                quantity: prevState.clickeditem.quantity ? prevState.clickeditem.quantity - 1 : 0
+            }
+
+        } 
+    })
+    }
+  
+    componentDidMount() {
+        
+        this.props.randomItems()
+    }
+
+>>>>>>> 8ef6b1387cd380a3f149228e6a198f0d39f50d75
 
 
     handleItemClick = (item) => {
@@ -51,7 +86,7 @@ class ItemsList extends React.Component {
          <div >
    <h2>Avaliable Items</h2>
    <div className='card-container'></div>
-        {this.state.clickeditem ?  <ItemInfo clickeditem={this.state.clickeditem} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : this.props.item.map((item) => <ItemCard key={Math.random()} item={item} handleItemClick={this.handleItemClick}/>)}
+        {this.state.clickeditem ?  <ItemInfo clickeditem={this.state.clickeditem} decrementQuantity={this.decrementQuantity} incrementQuantity={this.incrementQuantity} decreaseSelectedItems={this.props.decreaseSelectedItems} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : this.props.item.map((item) => <ItemCard key={Math.random()} item={item} handleItemClick={this.handleItemClick}/>)}
          </div>
     )
   }
