@@ -3,14 +3,22 @@
   transition: 0.3s;
   text-align: center;
   float: left;
-  width: 50%;
+  width: 23.5%;
   padding: 5px;
+  margin: 10px;
+  height: 19rem;
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 black;
 }
 
+.columnshome{
+  float: left;
+  width: 25%;
+  padding: 10px;
+  height: 300px;
+}
 
 
 #button-div{ 
@@ -62,6 +70,20 @@
   color: blue;
   font-weight: bold;
   font-size: 40px;
+}
+
+.home-title {
+  color: blue;
+  font-weight: bold;
+  font-size: 100px;
+  text-align: center;
+}
+
+#iphone-title {
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 40px;
+  color: darkblue;
 }
 
 

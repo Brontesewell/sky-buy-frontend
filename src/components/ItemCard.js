@@ -5,16 +5,15 @@ class ItemsCard extends React.Component {
     console.log(this.props.items)
     return (
         <div>
-    {/* <div>{this.props.filteredData.map(i => <p>{i.name}</p>)}</div> */}
     <div className='card' onClick={() => this.props.handleItemClick(this.props.item)}>
-    <h3>{this.props.item.name}</h3>
+    <h5>{this.props.item.name}</h5>
     <img id="img-cards" alt="" src={this.props.item.pic}></img>
+    <br></br>
     <h5> Price: ${this.props.item.price}</h5>
     </div>
     </div>
     )
   }
 }
-
  
 export default ItemsCard;

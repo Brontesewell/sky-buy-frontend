@@ -148,13 +148,39 @@ class Routes extends React.Component {
      item: constructItems(data["result"]["item"]), 
     }
 
-
    })
-    
-    
-    
-    
     }).catch(err => console.log(err))
+}
+
+
+topIphoneCases = () => {
+  console.log("items")
+  searchForItems("iphone case", 4).then(data => {
+
+  console.log(data["result"]["item"])    
+
+  this.setState(prevState => {
+  return {
+   ...prevState,
+   item: constructItems(data["result"]["item"]), 
+  }
+ })
+  }).catch(err => console.log(err))
+}
+
+topClothes = () => {
+  console.log("items")
+  searchForItems("clothes", 4).then(data => {
+
+  console.log(data["result"]["item"])    
+
+  this.setState(prevState => {
+  return {
+   ...prevState,
+   item: constructItems(data["result"]["item"]), 
+  }
+ })
+  }).catch(err => console.log(err))
 }
 
   handleInputChange = (event) => {
@@ -174,12 +200,6 @@ class Routes extends React.Component {
        item: constructItems(data["result"]["item"]), 
       }}))
   }
-
-//   updateState = (newItems) => {
-//     this.setState({
-//       item: newItems
-//     })
-// }
 
 
 
