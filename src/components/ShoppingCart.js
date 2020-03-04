@@ -56,13 +56,14 @@ componentDidMount() {
           <br></br>
           <br></br>
     <h3><strong>Total Price:</strong> ${this.props.selectedItems.map(item => (item.price) * (item.quantity)).reduce((a, b) => a + b, 0)}</h3>
-    <button class="btn-lg btn-outline-primary">Checkout</button>
+    
           </div>
     )
   }
 }
 // handleItemClick={this.props.removeSelectedItems}
 //<h3> Total Price: ${this.props.selectedItems.map(item => item.price)}</h3>
+//<button className="btn-lg btn-outline-primary">Checkout</button>
  
 export default ShoppingCart;
 
