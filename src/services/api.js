@@ -79,5 +79,7 @@ export const updateProfile = (profile, token, userId) => {
         },
         body: JSON.stringify({user: profile})
     }
+    const url = `http://localhost:3000/api/v1/users/${userId}`
+    return fetch(url, configuration).then(resp => resp.json())
 }
 

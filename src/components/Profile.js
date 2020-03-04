@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemsCard from './ItemCard'; 
+import EditAddress from './EditAddress.js'
 
 class Profile extends React.Component {
 
@@ -27,7 +28,7 @@ class Profile extends React.Component {
     return (
     <div > 
   <h1 class="profile" id="profile-name">{first_name} {last_name}'s Profile</h1>
-  
+    <EditAddress address={address} updateAddress={this.props.updateAddress} />
     <h4 class="profile">Purchases:</h4>
       {this.props.items.map(item => <ItemsCard key={Math.random()} item={item} onHandleClick={this.props.onHandleClick} />)}
     </div>
