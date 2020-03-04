@@ -80,7 +80,6 @@ class ItemsList extends React.Component {
          <div >
              <br></br>
    <h2 id="title-itemslist" >Search for any Items</h2>
-
    <Form inline >
        <div className="search-box">
       <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(event) => this.props.handleInputChange(event)}/>

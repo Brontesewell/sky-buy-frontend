@@ -7,38 +7,47 @@ class ItemsCard extends React.Component {
     return (
         
         <div>
-            <div className="item-info">
-        <h1>MORE INFO ON PRODUCT</h1>
-    <h3>{this.props.clickeditem.name}</h3>
-    <h4>Price: ${this.props.clickeditem.price}</h4>
-    <h4>delivery fee: ${this.props.clickeditem.delivery_fee}</h4>
-    <img id="img-cards" alt="" src={this.props.clickeditem.pic}></img>
-    <br></br>
-    <br></br>
-    <Button className="btn btn-secondary" onClick={() => this.props.handleBackButton()}>Back</Button>
-
+            <div>
+    <h1 className="item-info">{this.props.clickeditem.name}</h1>
+        <div id="item-information">
+    <h3>Price: ${this.props.clickeditem.price}</h3>
+    <h3>Delivery fee: ${this.props.clickeditem.delivery_fee}</h3>
+    <h3>How many SkyBuy have Sold: {this.props.clickeditem.sales}</h3>
+    <h3>Manufacture Location: {this.props.clickeditem.location}</h3>
+    <h3>Manufacture Shop Name: {this.props.clickeditem.shop_name}</h3>
+   
+<br></br>
+<br></br>
+<div>
     <div className="quantity">
-      Add To Shopping Cart: 
+      <strong>Add To Shopping Cart:</strong>
     <Button className="ui button fluid" onClick={() => {
       
       // increment by 1, call parent function
       this.props.incrementQuantity()
      
       this.props.handleSelectClick(this.props.clickeditem)
-    
-    
+      
+      
     }}> + </Button>
-    {this.props.clickeditem.quantity ? this.props.clickeditem.quantity : 0}
+    {this.props.clickeditem.quantity ? this.props.clickeditem.quantity : <strong> 0 </strong>}
     <Button className="ui button fluid" onClick={() => {
       
       this.props.decrementQuantity()
-
+      
       this.props.decreaseSelectedItems(this.props.clickeditem)
     }} > - </Button>
     </div>
+    
+    <br></br>
+    <Button className="btn btn-secondary btn-lg" onClick={() => this.props.handleBackButton()}>Back</Button>
 
     </div>
-    
+    </div>
+    <div id="item-image">
+    <img id="image-info" alt="" src={this.props.clickeditem.pic}></img>
+    </div>
+    </div>
     </div>
     )
   }

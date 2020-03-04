@@ -106,11 +106,7 @@ background-size: cover;
 }
 
 
-.item-info {
-  text-align: center;
-  border-style: solid;
-  padding: 20px;
-}
+
 
 .selectedItems {
   background-color: #09d3ac;
@@ -247,4 +243,25 @@ border-color: lightgrey;
   padding-top: 70px;
   width: 20%;
   height:200px;
+}
+
+#item-info-div{
+  border-style: solid;
+}
+
+#item-information {
+float: right;
+margin-right: 200px;
+}
+
+#image-info {
+  float: left;
+  height: 400px;
+  width: 400px;
+  margin-left: 200px;
+}
+
+.item-info {
+  text-align: center;
+  padding: 20px;
 }
