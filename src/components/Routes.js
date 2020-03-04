@@ -13,6 +13,7 @@ import {authenticate} from '../services/api'
 import {constructProfileItemArr} from '../utilities/helpers'
 import { searchForItems, updateProfile } from '../services/api'
 import { constructItems} from '../utilities/helpers'
+import Checkout from './Checkout'
 
 
 const taobaoHeaders = {
@@ -364,6 +365,7 @@ localStorage.setItem('selectedItems', JSON.stringify(this.state.selectedItems));
                      <Route exact path="/shoppingcart" render={(routerProps) => <ShoppingCart {...routerProps} userId={this.state.auth.userId} updateStateFromShoppingCart={this.updateStateFromShoppingCart} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
                      <Route exact path="/profile" render={(routerProps) => <Profile updateAddress={this.updateAddress} items={this.state.purchasedItems} profile={this.state.profile} {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser}/>}/> 
                       <Route exact path="/itemslist" render={(routerProps) => <ItemsList {...routerProps} decreaseSelectedItems={this.decreaseSelectedItems} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} item={this.state.item} handleSelectClick={this.handleSelectClick} randomItems={this.randomItems} handleInputChange={this.handleInputChange} query={this.state.query} buttonClick={this.buttonClick} handleLogOut={this.handleLogOut} />} /> 
+                      <Route exact path="/checkout" render={(routerProps) => <Checkout {...routerProps} />} />
                      </Switch>
 
               
