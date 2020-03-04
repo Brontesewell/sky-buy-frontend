@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemCard from './ItemCard';
 import { Button } from 'react-bootstrap';
+import {buyItems} from '../services/api'
  
 class ShoppingCart extends React.Component {
 // state={
@@ -56,7 +57,7 @@ componentDidMount() {
           <br></br>
           <br></br>
     <h3><strong>Total Price:</strong> ${this.props.selectedItems.map(item => (item.price) * (item.quantity)).reduce((a, b) => a + b, 0)}</h3>
-          </div>
+         <button onClick={() => buyItems(this.props.selectedItems, localStorage.getItem("fire_token"))  }>Buy</button> </div>
     )
   }
 }

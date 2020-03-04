@@ -47,3 +47,18 @@ export const authenticate = (token) => {
     return fetch(url, configuration).then(resp => resp.json())
 }
 
+export const buyItems = (items, token) => {
+
+    const url = `http://localhost:3000/api/v1/users/:user_id/purchases`
+    const configuration = {
+        method: "POST",
+        headers: {
+           "Authorization": `Bearer ${token}`,
+           "Accept": "application/json"
+                                         },
+        body: JSON.stringify(items)
+    }
+    return fetch(url, configuration).then(resp => resp.json())
+
+
+}
