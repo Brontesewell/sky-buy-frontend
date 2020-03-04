@@ -35,6 +35,7 @@ class ItemsCard extends React.Component {
       
       this.props.decrementQuantity()
       
+      
       this.props.decreaseSelectedItems(this.props.clickeditem)
     }} > - </Button>
     </div>
