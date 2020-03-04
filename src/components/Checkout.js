@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import StripeCheckout from 'react-stripe-checkout';
+import {buyItems} from '../services/api'
 
 // stripe test card num 4000 0025 0000 3155
 
@@ -18,7 +19,10 @@ class Checkout extends Component {
       }
 
     onClosed = () => {
-        //
+        buyItems(this.props.selectedItems, localStorage.getItem("fire_token"), this.props.userId)
+        // clear cart
+        this.props.removingAllSelectedItemsFromBuy()
+        this.props.updatePurchaseSuccess(true)
     }  
 
     render() {
@@ -29,7 +33,7 @@ class Checkout extends Component {
             stripeKey="pk_test_GAarGnWbeSB4S407vJtXTLzJ"
             name="SkyBuy"
             description="Earth's greatest E-commerce Entity"
-            amount={this.props.total}
+            amount={this.props.total * 100}
             currency="CNY"
             componentClass="div"
             locale="en"

@@ -1,6 +1,4 @@
 import React from 'react';
-import ItemCard from './ItemCard'
-import ItemInfo from './ItemInfo'
  
 class Home extends React.Component {
 

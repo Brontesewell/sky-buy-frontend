@@ -1,11 +1,8 @@
 import React from 'react';
 import ItemCard from './ItemCard'
-import ItemInfo from './ItemInfo'
-import { searchForItems } from '../services/api'
-import { constructItems} from '../utilities/helpers'
 import { Form, Button, FormControl } from 'react-bootstrap';
  
-class ItemsList extends React.Component {
+class ToogleSearch extends React.Component {
 
 
   render() {
@@ -33,4 +30,4 @@ class ItemsList extends React.Component {
 }
  
 
-export default ItemsList;
+export default ToogleSearch;

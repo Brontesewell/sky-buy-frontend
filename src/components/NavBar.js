@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, withRouter} from 'react-router-dom';
-import { Nav, Navbar, Form, Button, FormControl } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 
 
 
@@ -9,7 +9,7 @@ const NavBar = (props) => {
   console.log("navbar props", props )
   console.log(props.handleInputChange)
 
-  const {first_name, last_name, address} = props.profile
+  const {first_name} = props.profile
 
   return (
    

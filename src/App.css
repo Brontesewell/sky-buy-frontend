@@ -271,14 +271,14 @@ border-color: lightgrey;
 
 #item-information {
 float: right;
-margin-right: 10%;
+margin-right: 20%;
 }
 
 #image-info {
   float: left;
   height: 400px;
-  width: 400px;
-  margin-left: 10%;
+  width: auto;
+  margin-left: 20%;
 }
 
 .item-info {
@@ -286,4 +286,15 @@ margin-right: 10%;
   margin-top: 90px;
   margin-bottom: 50px;
   text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-style: solid;
+}
+
+
+
+
+#checkout-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
  
-class ItemsCard extends React.Component {
+class ItemInfo extends React.Component {
   render() {
     //debugger
     return (
@@ -54,4 +54,4 @@ class ItemsCard extends React.Component {
   }
 }
  
-export default ItemsCard;
+export default ItemInfo;

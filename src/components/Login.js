@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {authenticate, authInCompDidMount} from '../services/api'
+
 
 
 class Login extends Component {
