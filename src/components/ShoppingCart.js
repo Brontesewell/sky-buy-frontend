@@ -1,27 +1,24 @@
 import React from 'react';
 import ItemCard from './ItemCard';
+import BuyItems from './BuyItems'
 import { Button } from 'react-bootstrap';
 import {buyItems} from '../services/api'
  
 class ShoppingCart extends React.Component {
-// state={
-//   total: 0
-// }
 
-// totalpriceforcart = () => {
-//   const newTotal = this.props.selectedItems.map(item => (item.price) * (item.quantity)).reduce((a, b) => a + b, 0)
+  constructor(props) {
+    super(props);
+    this.state = {
+      showComponent: false,
+    };
+    this._onButtonClick = this._onButtonClick.bind(this);
+  }
 
-//   this.setState(prevState => ({
-//     ...prevState,
-//     total: newTotal
-// }))
-// }
-
-
-// componentWillUnmount() {
-//   console.log("unmount shopping cart")
-//   localStorage.setItem('selectedItems', JSON.stringify(this.props.selectedItems));
-// }
+  _onButtonClick() {
+    this.setState({
+      showComponent: true,
+    });
+  }
 
 componentCleanUp = () => {
   console.log("component clean up called")
@@ -57,13 +54,15 @@ componentDidMount() {
           <br></br>
           <br></br>
     <h3><strong>Total Price:</strong> ${this.props.selectedItems.map(item => (item.price) * (item.quantity)).reduce((a, b) => a + b, 0)}</h3>
-         <button onClick={() => buyItems(this.props.selectedItems, localStorage.getItem("fire_token"), this.props.userId)  }>Buy</button> </div>
+    <button onClick={() => {buyItems(this.props.selectedItems, localStorage.getItem("fire_token"), this.props.userId); this.props.removingAllSelectedItemsFromBuy(); this._onButtonClick()}} className="btn-lg btn-outline-primary" >Buy</button> 
+    {this.state.showComponent ?
+           <BuyItems /> :
+           null
+        }
+         </div>
     )
   }
 }
-// handleItemClick={this.props.removeSelectedItems}
-//<h3> Total Price: ${this.props.selectedItems.map(item => item.price)}</h3>
-//<button className="btn-lg btn-outline-primary">Checkout</button>
- 
+
 export default ShoppingCart;
 

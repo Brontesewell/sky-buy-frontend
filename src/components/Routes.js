@@ -334,6 +334,12 @@ localStorage.setItem('selectedItems', JSON.stringify(this.state.selectedItems));
 }
 
 
+removingAllSelectedItemsFromBuy = () => {
+  this.setState({
+    selectedItems: []
+  })
+}
+
   updateStateFromShoppingCart = () => {
     this.setState({
       selectedItems: JSON.parse(localStorage.getItem('selectedItems'))
@@ -350,7 +356,7 @@ localStorage.setItem('selectedItems', JSON.stringify(this.state.selectedItems));
                      <Switch>
                      <Route exact path="/" render={(routerProps) => <Login setLogin={this.setLogin} {...routerProps} handleLogin={this.handleLogin} signOut={this.props.signOut} user={this.props.user} auth={this.state.auth} signInWithGoogle={this.props.signInWithGoogle} />}/>
                      <Route exact path="/home" render={(routerProps) => <Home topIphoneCases={this.topIphoneCases} iphones={this.state.iphones} clothes={this.state.clothes} topClothes={this.topClothes} topShoes={this.topShoes} shoes={this.state.shoes} item={this.state.item} handleSelectClick={this.handleSelectClick} isAuthenticatedUser={this.isAuthenticatedUser} {...routerProps} setLogin={this.setLogin} /> }/>
-                     <Route exact path="/shoppingcart" render={(routerProps) => <ShoppingCart {...routerProps} userId={this.state.auth.userId} updateStateFromShoppingCart={this.updateStateFromShoppingCart} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
+                     <Route exact path="/shoppingcart" render={(routerProps) => <ShoppingCart {...routerProps} removingAllSelectedItemsFromBuy={this.removingAllSelectedItemsFromBuy} userId={this.state.auth.userId} updateStateFromShoppingCart={this.updateStateFromShoppingCart} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
                      <Route exact path="/profile" render={(routerProps) => <Profile items={this.state.purchasedItems} profile={this.state.profile} {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser}/>}/> 
                       <Route exact path="/itemslist" render={(routerProps) => <ItemsList {...routerProps} decreaseSelectedItems={this.decreaseSelectedItems} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} item={this.state.item} handleSelectClick={this.handleSelectClick} randomItems={this.randomItems} handleInputChange={this.handleInputChange} query={this.state.query} buttonClick={this.buttonClick} handleLogOut={this.handleLogOut} />} /> 
                      </Switch>
