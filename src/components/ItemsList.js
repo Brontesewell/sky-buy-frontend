@@ -37,7 +37,7 @@ class ItemsList extends React.Component {
         this.setState(prevState => {
            return { clickeditem: {
                 ...prevState.clickeditem,
-                quantity: prevState.clickeditem.quantity ? prevState.clickeditem.quantity + 1 : 0
+                quantity: prevState.clickeditem.quantity ? prevState.clickeditem.quantity + 1 : 1
             }
 
         } 
