@@ -8,6 +8,9 @@ import { Nav, Navbar, Form, Button, FormControl } from 'react-bootstrap';
 const NavBar = (props) => {
   console.log("navbar props", props )
   console.log(props.handleInputChange)
+
+  const {first_name, last_name, address} = props.profile
+
   return (
    
     <div className="navbar">
@@ -21,16 +24,17 @@ const NavBar = (props) => {
       <NavLink className="nav-link" to="/shoppingcart">Shopping Cart</NavLink>
       <NavLink className="nav-link" to="/" onClick={() => {
            
-           // logout
-           props.handleLogOut()
-           // redirect 
-           
-        }}> Logout </NavLink>
+        // logout
+        props.handleLogOut()
+        // redirect 
+        
+      }}> Logout </NavLink>
     </Nav>
     {/* <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(event) => props.handleInputChange(event)}/>
       <Button variant="outline-primary" onClick={props.buttonClick}>Search</Button>
     </Form> */}
+    <h1 id="name-nabar">Hello {first_name}</h1>
   </Navbar>
   </div>
     </div>

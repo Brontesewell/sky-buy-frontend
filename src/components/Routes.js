@@ -346,7 +346,7 @@ localStorage.setItem('selectedItems', JSON.stringify(this.state.selectedItems));
     return (  
         
               <div> 
-                 { this.state.auth.loggedIn ? < NavBar handleLogOut={this.handleLogOut} />: null}
+                 { this.state.auth.loggedIn ? < NavBar handleLogOut={this.handleLogOut} profile={this.state.profile}/>: null}
                      <Switch>
                      <Route exact path="/" render={(routerProps) => <Login setLogin={this.setLogin} {...routerProps} handleLogin={this.handleLogin} signOut={this.props.signOut} user={this.props.user} auth={this.state.auth} signInWithGoogle={this.props.signInWithGoogle} />}/>
                      <Route exact path="/home" render={(routerProps) => <Home topIphoneCases={this.topIphoneCases} iphones={this.state.iphones} clothes={this.state.clothes} topClothes={this.topClothes} topShoes={this.topShoes} shoes={this.state.shoes} item={this.state.item} handleSelectClick={this.handleSelectClick} isAuthenticatedUser={this.isAuthenticatedUser} {...routerProps} setLogin={this.setLogin} /> }/>

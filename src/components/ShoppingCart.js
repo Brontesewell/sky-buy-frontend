@@ -56,7 +56,7 @@ componentDidMount() {
           <br></br>
           <br></br>
     <h3><strong>Total Price:</strong> ${this.props.selectedItems.map(item => (item.price) * (item.quantity)).reduce((a, b) => a + b, 0)}</h3>
-    
+    <button className="btn-lg btn-outline-primary">Checkout</button>
           </div>
     )
   }
