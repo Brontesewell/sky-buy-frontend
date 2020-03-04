@@ -286,4 +286,6 @@ margin-right: 10%;
   margin-top: 90px;
   margin-bottom: 50px;
   text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-style: wavy;
 }
