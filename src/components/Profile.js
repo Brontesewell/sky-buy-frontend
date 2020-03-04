@@ -25,10 +25,10 @@ class Profile extends React.Component {
     const {first_name, last_name, address} = this.props.profile
 
     return (
-    <div>
-  <h1>Hello @{first_name}</h1>
+    <div > 
+  <h1 class="profile" id="profile-name">{first_name} {last_name}'s Profile</h1>
   
-    <h4>Purchases:</h4>
+    <h4 class="profile">Purchases:</h4>
       {this.props.items.map(item => <ItemsCard key={Math.random()} item={item} onHandleClick={this.props.onHandleClick} />)}
     </div>
     )

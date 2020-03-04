@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemCard from './ItemCard'
 import ItemInfo from './ItemInfo'
+import ToggleSearch from './ToggleSearch'
 import { searchForItems } from '../services/api'
 import { constructItems} from '../utilities/helpers'
 import { Form, Button, FormControl } from 'react-bootstrap';
@@ -78,7 +79,7 @@ class ItemsList extends React.Component {
 
     return (
          <div >
-  <br></br>
+  {/* <br></br>
 <h2 id="title-itemslist" >Search for any Items</h2>
 <Form inline >
     <div className="search-box">
@@ -87,10 +88,10 @@ class ItemsList extends React.Component {
    </div>
  </Form>
  <br></br>
-     <br></br>
-<h3 id="recommended-itemslist">Recommended Items:</h3>
+     <br></br> */}
+{/* <h3 id="recommended-itemslist">Recommended Items:</h3> */}
 <div className='card-container'></div>
-        {this.state.clickeditem ?  <ItemInfo clickeditem={this.state.clickeditem} decrementQuantity={this.decrementQuantity} incrementQuantity={this.incrementQuantity} decreaseSelectedItems={this.props.decreaseSelectedItems} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : this.props.item.map((item) => <ItemCard key={Math.random()} item={item} handleItemClick={this.handleItemClick}/>)}
+        {this.state.clickeditem ?  <ItemInfo clickeditem={this.state.clickeditem} decrementQuantity={this.decrementQuantity} incrementQuantity={this.incrementQuantity} decreaseSelectedItems={this.props.decreaseSelectedItems} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : <ToggleSearch  item={this.props.item} handleItemClick={this.handleItemClick}/>}
          </div>
     )
   }

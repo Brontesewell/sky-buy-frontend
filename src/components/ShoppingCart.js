@@ -63,6 +63,7 @@ componentDidMount() {
 }
 // handleItemClick={this.props.removeSelectedItems}
 //<h3> Total Price: ${this.props.selectedItems.map(item => item.price)}</h3>
+//<button className="btn-lg btn-outline-primary">Checkout</button>
  
 export default ShoppingCart;
 
