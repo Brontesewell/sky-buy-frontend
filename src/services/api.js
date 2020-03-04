@@ -21,6 +21,8 @@ export const searchForItems = (query, max_results) => {
     return fetch(url, configuration).then(resp => resp.json())
 }
 
+// internal / our rails backend api methods
+
 export const getPurchasedItems = (userId, token) => {
 
     const url = `http://localhost:3000/api/v1/users/${userId}/purchases`
@@ -64,3 +66,18 @@ export const buyItems = (items, token, userId) => {
 
 
 }
+
+export const updateProfile = (profile, token, userId) => {
+    const configuration = {
+        method: "PATCH",
+        headers: {
+
+           "Content-Type": "application/json", 
+           "Authorization": `Bearer ${token}`,
+           "Accept": "application/json"
+
+        },
+        body: JSON.stringify({user: profile})
+    }
+}
+
