@@ -251,14 +251,14 @@ border-color: lightgrey;
 
 #item-information {
 float: right;
-margin-right: 200px;
+margin-right: 20%;
 }
 
 #image-info {
   float: left;
   height: 400px;
   width: 400px;
-  margin-left: 200px;
+  margin-left: 20%;
 }
 
 .item-info {
