@@ -40,11 +40,16 @@ class Routes extends React.Component {
     shoes: []
   }
 
+
+
+
   componentDidMount() {
-    
-     console.log("Routes Mounted")
+    console.log("Routes Mounted")
+     
    
   }
+
+  
 
   isAuthenticatedUser = () => {
     authenticate(localStorage.getItem("fire_token")).then(resp => {
@@ -233,6 +238,10 @@ topShoes = () => {
 
 
   handleSelectClick = (item) => {
+// adding to local storage
+   
+    
+localStorage.setItem('selectedItems', JSON.stringify(this.state.selectedItems));
     
     // check if item is already in SelectedItems.
     // if it is, it will have a quantity key, with a value from 1..n
@@ -246,6 +255,7 @@ topShoes = () => {
      const found = this.state.selectedItems.find(i => i.external_id === item.external_id)
       
       if (found) {
+
         this.setState(prevState => ({
           ...prevState,
           selectedItems: prevState.selectedItems.map(i => {
@@ -253,7 +263,7 @@ topShoes = () => {
               return { ...i, quantity: i.quantity + 1}
             } else {
               return i
-            }
+            } 
           })
         }))} else {
           //debugger
@@ -268,6 +278,10 @@ topShoes = () => {
       }
     }
 
+    
+
+
+
 
       decreaseSelectedItems = (item) => {
 
@@ -276,6 +290,7 @@ topShoes = () => {
           // if item is in selectedItems
             // if its quantity is one, remove the item from selectedItems
             // else its quantity is more than one, decrease its value by 1      
+           
             const found = this.state.selectedItems.find(i => i.external_id === item.external_id)
             if (found) {
               if (item.quantity > 1) {
@@ -309,12 +324,21 @@ topShoes = () => {
 
 
   removeSelectedItems = (item) => {
+    //debugger
+    // localStorage.removeItem('selectedItems', JSON.stringify(this.state.selectedItems.find(i => i.external_id === item.external_id)));
     const newSelected = this.state.selectedItems.filter(piece => piece !== item)
     this.setState(prevState => ({
         ...prevState,
         selectedItems: newSelected
     }))
 }
+
+
+  updateStateFromShoppingCart = () => {
+    this.setState({
+      selectedItems: JSON.parse(localStorage.getItem('selectedItems'))
+    })
+  }
 
 
   render() {
@@ -326,9 +350,9 @@ topShoes = () => {
                      <Switch>
                      <Route exact path="/" render={(routerProps) => <Login setLogin={this.setLogin} {...routerProps} handleLogin={this.handleLogin} signOut={this.props.signOut} user={this.props.user} auth={this.state.auth} signInWithGoogle={this.props.signInWithGoogle} />}/>
                      <Route exact path="/home" render={(routerProps) => <Home topIphoneCases={this.topIphoneCases} iphones={this.state.iphones} clothes={this.state.clothes} topClothes={this.topClothes} topShoes={this.topShoes} shoes={this.state.shoes} item={this.state.item} handleSelectClick={this.handleSelectClick} isAuthenticatedUser={this.isAuthenticatedUser} {...routerProps} setLogin={this.setLogin} /> }/>
-                     <Route exact path="/profile" render={(routerProps) => <Profile onHandleClick={this.onHandleClick} items={this.state.purchasedItems} profile={this.state.profile} {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser}/>}/> 
-                     <Route exact path="/shoppingcart" render={(routerProps) => <ShoppingCart {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
-    <Route exact path="/itemslist" render={(routerProps) => <ItemsList {...routerProps} decreaseSelectedItems={this.decreaseSelectedItems} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} item={this.state.item} handleSelectClick={this.handleSelectClick} randomItems={this.randomItems} handleInputChange={this.handleInputChange} query={this.state.query} buttonClick={this.buttonClick} handleLogOut={this.handleLogOut} />} /> 
+                     <Route exact path="/shoppingcart" render={(routerProps) => <ShoppingCart {...routerProps} updateStateFromShoppingCart={this.updateStateFromShoppingCart} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
+                     <Route exact path="/profile" render={(routerProps) => <Profile items={this.state.purchasedItems} profile={this.state.profile} {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser}/>}/> 
+                      <Route exact path="/itemslist" render={(routerProps) => <ItemsList {...routerProps} decreaseSelectedItems={this.decreaseSelectedItems} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} item={this.state.item} handleSelectClick={this.handleSelectClick} randomItems={this.randomItems} handleInputChange={this.handleInputChange} query={this.state.query} buttonClick={this.buttonClick} handleLogOut={this.handleLogOut} />} /> 
                      </Switch>
 
               

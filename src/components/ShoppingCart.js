@@ -3,24 +3,50 @@ import ItemCard from './ItemCard';
 import { Button } from 'react-bootstrap';
  
 class ShoppingCart extends React.Component {
+// state={
+//   total: 0
+// }
 
- 
-    componentDidMount() {
+// totalpriceforcart = () => {
+//   const newTotal = this.props.selectedItems.map(item => (item.price) * (item.quantity)).reduce((a, b) => a + b, 0)
+
+//   this.setState(prevState => ({
+//     ...prevState,
+//     total: newTotal
+// }))
+// }
+
+
+// componentWillUnmount() {
+//   console.log("unmount shopping cart")
+//   localStorage.setItem('selectedItems', JSON.stringify(this.props.selectedItems));
+// }
+
+componentCleanUp = () => {
+  console.log("component clean up called")
+  localStorage.setItem('selectedItems', JSON.stringify(this.props.selectedItems));
+}
+
+
+componentDidMount() {
       if (!localStorage.getItem("fire_token")) { 
-       
+        
           this.props.setLogin(false)
           this.props.history.push("/")
-            
+          
         } else {
     
           this.props.isAuthenticatedUser()
-         
+          this.props.updateStateFromShoppingCart();
+          window.addEventListener('beforeunload', this.componentCleanUp)
         }
         console.log("Shopping Cart Mounted")
+
   }
   
   render() {
     console.log(this.props.selectedItems)
+    
     return (
     <div className="shopping-cart">
       <br></br>
