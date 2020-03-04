@@ -21,7 +21,8 @@ class Login extends Component {
               
               
               this.props.signInWithGoogle().then(data => {
-                console.log("signed in with google")
+                console.log("signed in with google", data.credential.idToken)
+                
                 // set token
                 
                 localStorage.setItem("fire_token", data.credential.idToken)

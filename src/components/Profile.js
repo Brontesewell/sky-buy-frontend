@@ -1,5 +1,6 @@
 import React from 'react';
- 
+import ItemsCard from './ItemCard'; 
+
 class Profile extends React.Component {
 
 
@@ -26,8 +27,9 @@ class Profile extends React.Component {
     return (
     <div>
   <h1>Hello @{first_name}</h1>
-
+  
     <h4>Purchases:</h4>
+      {this.props.items.map(item => <ItemsCard item={item} onHandleClick={this.props.onHandleClick} />)}
     </div>
     )
   }
