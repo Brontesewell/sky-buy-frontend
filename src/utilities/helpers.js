@@ -11,7 +11,8 @@ export function constructItem(itemData){
       sales: itemData["sales"],
       shop_name: itemData["shop_title"],
       delivery_fee: itemData["delivery_fee"],
-      location: itemData["loc"]
+      location: itemData["loc"],
+      quantity: 0
     }
   }
   
@@ -37,7 +38,7 @@ export function constructItem(itemData){
 
   
     const items = extractItemsFromPurchases(purchases)
-    
+
     return _.uniq(items.map(item => {
       return {...item, quantity: countQuantity(items, item)}
     }), false, _.iteratee((i) => i.external_id ) )

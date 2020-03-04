@@ -29,7 +29,7 @@ class Profile extends React.Component {
   <h1 class="profile" id="profile-name">{first_name} {last_name}'s Profile</h1>
   
     <h4 class="profile">Purchases:</h4>
-      {this.props.items.map(item => <ItemsCard item={item} onHandleClick={this.props.onHandleClick} />)}
+      {this.props.items.map(item => <ItemsCard key={Math.random()} item={item} onHandleClick={this.props.onHandleClick} />)}
     </div>
     )
   }
