@@ -30,7 +30,7 @@ class ItemsCard extends React.Component {
       
       
     }}> + </Button>
-    {this.props.clickeditem.quantity ? this.props.clickeditem.quantity : <strong> 0 </strong>}
+    {this.props.clickeditem.quantity ? <strong> {this.props.clickeditem.quantity} </strong> : <strong> 0 </strong>}
     <Button className="ui button fluid" onClick={() => {
       
       this.props.decrementQuantity()
