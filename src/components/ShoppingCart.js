@@ -53,8 +53,8 @@ componentDidMount() {
     {this.props.selectedItems.map(item => <div className="shopping-div"> <div id="item-card-div"><h3 id="itemnameshop">{item.name}</h3> <img id="img-card-shopping"src={item.pic}></img></div>  <div id="quantity"><h3><strong>Quantity:</strong>{item.quantity}</h3></div> <div id="price"><br></br><h3><strong>Price per item:</strong> ${item.price}</h3><br></br><h3><strong>Total Price:</strong> ${(item.price) * (item.quantity)}</h3></div>  <div id="button-div"> <Button className="ui button fluid" onClick={() => this.props.removeSelectedItems(item)}> Delete Item </Button></div> </div>)}
           <br></br>
           <br></br>
-    <h3><strong>Total Price:</strong> ${this.props.selectedItems.map(item => (item.price) * (item.quantity)).reduce((a, b) => a + b, 0)}</h3>
-    <button onClick={() => {buyItems(this.props.selectedItems, localStorage.getItem("fire_token"), this.props.userId); this.props.removingAllSelectedItemsFromBuy(); this._onButtonClick()}} className="btn-lg btn-outline-primary" >Buy</button> 
+    {this.props.selectedItems.length > 0 ? <h3><strong>Total Price:</strong> ${this.props.selectedItems.map(item => (item.price) * (item.quantity)).reduce((a, b) => a + b, 0)}</h3> : <h3></h3>}
+  {this.props.selectedItems.length > 0 && <button onClick={() => {buyItems(this.props.selectedItems, localStorage.getItem("fire_token"), this.props.userId); this.props.removingAllSelectedItemsFromBuy(); this._onButtonClick()}} className="btn-lg btn-outline-primary" >Buy</button> }
     {this.state.showComponent ?
            <BuyItems /> :
            null

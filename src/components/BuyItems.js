@@ -5,8 +5,7 @@ class BuyItems extends React.Component {
   render() {
     return (
     <div>
-    <h1 className="home-title">SkyBuy☁️ Buy Now</h1>
-
+    <h1 id="checkout-title">Checkout</h1>
     
     </div>
     )
