@@ -2,6 +2,7 @@ import React from 'react';
 import ItemCard from './ItemCard'
 import ItemInfo from './ItemInfo'
 import { TranslatorProvider, useTranslate } from "react-translate"
+import Loading from './Loading'
  
 class Home extends React.Component {
 
@@ -31,7 +32,9 @@ handleBackButton = () => {
 
   render() {
     return (
-    <div>
+     <div>
+
+    { this.props.isLoading('home') ? <Loading />:<div>
     <h1 className="home-title">SkyBuy☁️</h1>
     <h4 className="home-sub-title">Items of the Week</h4>
     <div className='iphonecase'>
@@ -49,6 +52,7 @@ handleBackButton = () => {
          {this.props.shoes.map((item) => <div key={Math.random()} className='shoes-card'> <h5>{item.name}</h5> <img id="img-cards" alt="" src={item.pic}></img> <h5> Price: ${item.price}</h5> </div>)}
          </div>
 
+    </div>}
     </div>
     )
   }

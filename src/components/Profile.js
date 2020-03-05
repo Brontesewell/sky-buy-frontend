@@ -1,5 +1,7 @@
 import React from 'react';
 import ItemsCard from './ItemCard'; 
+import EditAddress from './EditAddress.js'
+import Loading from "./Loading"
 
 class Profile extends React.Component {
 
@@ -25,11 +27,17 @@ class Profile extends React.Component {
     const {first_name, last_name, address} = this.props.profile
 
     return (
-    <div > 
+    
+  <div>
+   
+  {this.props.isLoading("profile") ? <Loading /> : <div>
+     
   <h1 class="profile" id="profile-name">{first_name} {last_name}'s Profile</h1>
-  
+    <EditAddress address={address} updateAddress={this.props.updateAddress} />
     <h4 class="profile">Purchases:</h4>
       {this.props.items.map(item => <ItemsCard key={Math.random()} item={item} onHandleClick={this.props.onHandleClick} />)}
+    </div>
+    }
     </div>
     )
   }

@@ -3,7 +3,7 @@
 import React, { Suspense } from 'react';
 
 import {
-    BrowserRouter as Router, Switch, withRouter,
+    Switch, withRouter,
     Route
   } from 'react-router-dom';
 import NavBar from './NavBar';
@@ -14,16 +14,13 @@ import ItemsList from './ItemsList'
 import Login from './Login'
 import {authenticate} from '../services/api'
 import {constructProfileItemArr} from '../utilities/helpers'
-import { searchForItems } from '../services/api'
+import { searchForItems, updateProfile } from '../services/api'
 import { constructItems} from '../utilities/helpers'
+import Loading from './Loading'
 
 
-const taobaoHeaders = {
-  "x-rapidapi-host": "taobao-api.p.rapidapi.com",
-  "x-rapidapi-key": "pgIpYdsMbLmshKSnodVWVQOZrSirp1U6HnIjsni2mklfznQrJ2",
-  "Accept": "application/json"
 
-}
+
 
 class Routes extends React.Component {
   state = {
@@ -283,7 +280,18 @@ localStorage.setItem('selectedItems', JSON.stringify(this.state.selectedItems));
 
     
 
-
+     updateAddress = (newAddress) => {
+       this.setState((prevState) => {
+         return {
+           ...prevState,
+           profile: {
+             ...prevState.profile,
+             address: newAddress
+           }
+         }
+       }, () => updateProfile(this.state.profile, localStorage.getItem("fire_token"), this.state.auth.userId)
+       )
+     }
 
 
       decreaseSelectedItems = (item) => {
@@ -341,6 +349,8 @@ removingAllSelectedItemsFromBuy = () => {
   this.setState({
     selectedItems: []
   })
+  localStorage.setItem('selectedItems', JSON.stringify([]))
+  
 }
 
   updateStateFromShoppingCart = () => {
@@ -348,6 +358,12 @@ removingAllSelectedItemsFromBuy = () => {
       selectedItems: JSON.parse(localStorage.getItem('selectedItems'))
     })
   }
+
+  isLoading = (routeName) => {
+    if (routeName === 'profile') return this.state.profile.first_name === ""
+    else if (routeName === 'itemsList') return this.state.item.length === 0
+    else if (routeName === 'home') return this.state.clothes.length === 0
+  } 
 
 
   render() {
@@ -359,10 +375,11 @@ removingAllSelectedItemsFromBuy = () => {
                  { this.state.auth.loggedIn ? < NavBar handleLogOut={this.handleLogOut} profile={this.state.profile}/>: null}
                      <Switch>
                      <Route exact path="/" render={(routerProps) => <Login setLogin={this.setLogin} {...routerProps} handleLogin={this.handleLogin} signOut={this.props.signOut} user={this.props.user} auth={this.state.auth} signInWithGoogle={this.props.signInWithGoogle} />}/>
-                     <Route exact path="/home" render={(routerProps) => <Home topIphoneCases={this.topIphoneCases} iphones={this.state.iphones} clothes={this.state.clothes} topClothes={this.topClothes} topShoes={this.topShoes} shoes={this.state.shoes} item={this.state.item} handleSelectClick={this.handleSelectClick} isAuthenticatedUser={this.isAuthenticatedUser} {...routerProps} setLogin={this.setLogin} /> }/>
+                     <Route exact path="/home" render={(routerProps) => <Home isLoading={this.isLoading} topIphoneCases={this.topIphoneCases} iphones={this.state.iphones} clothes={this.state.clothes} topClothes={this.topClothes} topShoes={this.topShoes} shoes={this.state.shoes} item={this.state.item} handleSelectClick={this.handleSelectClick} isAuthenticatedUser={this.isAuthenticatedUser} {...routerProps} setLogin={this.setLogin} /> }/>
                      <Route exact path="/shoppingcart" render={(routerProps) => <ShoppingCart {...routerProps} removingAllSelectedItemsFromBuy={this.removingAllSelectedItemsFromBuy} userId={this.state.auth.userId} updateStateFromShoppingCart={this.updateStateFromShoppingCart} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} selectedItems={this.state.selectedItems} removeSelectedItems={this.removeSelectedItems}/>}/> 
-                     <Route exact path="/profile" render={(routerProps) => <Profile items={this.state.purchasedItems} profile={this.state.profile} {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser}/>}/> 
-                      <Route exact path="/itemslist" render={(routerProps) => <ItemsList {...routerProps} decreaseSelectedItems={this.decreaseSelectedItems} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} item={this.state.item} handleSelectClick={this.handleSelectClick} randomItems={this.randomItems} handleInputChange={this.handleInputChange} query={this.state.query} buttonClick={this.buttonClick} handleLogOut={this.handleLogOut} />} /> 
+                     <Route exact path="/profile" render={(routerProps) => <Profile isLoading={this.isLoading} items={this.state.purchasedItems} profile={this.state.profile} {...routerProps} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser}/>}/> 
+                      <Route exact path="/itemslist" render={(routerProps) => <ItemsList isLoading={this.isLoading} {...routerProps} decreaseSelectedItems={this.decreaseSelectedItems} setLogin={this.setLogin} isAuthenticatedUser={this.isAuthenticatedUser} item={this.state.item} handleSelectClick={this.handleSelectClick} randomItems={this.randomItems} handleInputChange={this.handleInputChange} query={this.state.query} buttonClick={this.buttonClick} handleLogOut={this.handleLogOut} />} /> 
+                      
                      </Switch>
 
                      </Suspense>
