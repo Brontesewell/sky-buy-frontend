@@ -1,4 +1,7 @@
-import React from 'react';
+// import React from 'react';
+// import { TranslatorProvider, useTranslate } from "react-translate"
+import React, { Suspense } from 'react';
+
 import {
     Switch, withRouter,
     Route
@@ -376,6 +379,7 @@ removingAllSelectedItemsFromBuy = () => {
     return (  
         
               <div> 
+                <Suspense fallback={(<div>Loading</div>)}>
                  { this.state.auth.loggedIn ? < NavBar handleLogOut={this.handleLogOut} profile={this.state.profile}/>: null}
                      <Switch>
                      <Route exact path="/" render={(routerProps) => <Login setLogin={this.setLogin} {...routerProps} handleLogin={this.handleLogin} signOut={this.props.signOut} user={this.props.user} auth={this.state.auth} signInWithGoogle={this.props.signInWithGoogle} />}/>
@@ -386,7 +390,7 @@ removingAllSelectedItemsFromBuy = () => {
                       
                      </Switch>
 
-              
+                     </Suspense>
               </div>
         
     )

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import {buyItems} from '../services/api'
+import { withTranslation } from 'react-i18next';
 import Checkout from './Checkout';
  
 class ShoppingCart extends React.Component {
@@ -55,10 +57,12 @@ componentDidMount() {
   render() {
   
     
+    const { t } = this.props;
     return (
+
     <div className="shopping-cart">
       <br></br>
-           <h1>Shopping Cart:</h1> 
+      <h1>Shopping Cart</h1>
       
     {this.props.selectedItems.map(item => <div className="shopping-div"> <div id="item-card-div"><h3 id="itemnameshop">{item.name}</h3> <img id="img-card-shopping"src={item.pic}></img></div>  <div id="quantity"><h3><strong>Quantity:</strong>{item.quantity}</h3></div> <div id="price"><br></br><h3><strong>Price per item:</strong> ${item.price}</h3><br></br><h3><strong>Total Price:</strong> ${(item.price) * (item.quantity)}</h3></div>  <div id="button-div"> <Button className="ui button fluid" onClick={() => this.props.removeSelectedItems(item)}> Delete Item </Button></div> </div>)}
           <br></br>
@@ -73,6 +77,6 @@ componentDidMount() {
   }
 }
 
-export default ShoppingCart;
+export default withTranslation()(ShoppingCart);
 
 

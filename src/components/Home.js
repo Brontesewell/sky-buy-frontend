@@ -1,4 +1,7 @@
 import React from 'react';
+import ItemCard from './ItemCard'
+import ItemInfo from './ItemInfo'
+import { TranslatorProvider, useTranslate } from "react-translate"
 import Loading from './Loading'
  
 class Home extends React.Component {
