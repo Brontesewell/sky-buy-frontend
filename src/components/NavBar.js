@@ -30,10 +30,7 @@ const NavBar = (props) => {
         
       }}> Logout </NavLink>
     </Nav>
-    {/* <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(event) => props.handleInputChange(event)}/>
-      <Button variant="outline-primary" onClick={props.buttonClick}>Search</Button>
-    </Form> */}
+ 
     <h1 id="name-nabar">Hello {first_name}</h1>
   </Navbar>
   </div>

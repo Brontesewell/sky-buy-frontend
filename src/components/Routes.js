@@ -264,6 +264,7 @@ localStorage.setItem('selectedItems', JSON.stringify(this.state.selectedItems));
           selectedItems: prevState.selectedItems.map(i => {
             if (i.external_id === item.external_id) {
               return { ...i, quantity: i.quantity + 1}
+              
             } else {
               return i
             } 

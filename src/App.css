@@ -271,14 +271,14 @@ border-color: lightgrey;
 
 #item-information {
 float: right;
-margin-right: 20%;
+margin-right: 9%;
 }
 
 #image-info {
   float: left;
   height: 400px;
   width: auto;
-  margin-left: 20%;
+  margin-left: 13%;
 }
 
 .item-info {
@@ -313,4 +313,14 @@ margin-right: 20%;
   text-align: center;
   font-weight: bold;
   font-size: 50px;
+}
+
+#spin{
+  margin-left: 48%;
+  margin-right: 40%;
+}
+
+#spinner{
+  text-align: center;
+  margin-top: 150px;
 }
