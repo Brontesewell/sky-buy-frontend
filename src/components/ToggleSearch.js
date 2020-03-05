@@ -14,7 +14,7 @@ class ToogleSearch extends React.Component {
 <h2 id="title-itemslist" >Search for any Items</h2>
 <Form inline >
     <div className="search-box">
-   <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(event) => this.props.handleInputChange(event)}/>
+   <FormControl type="text" value={this.props.query} placeholder="Search" className="mr-sm-2" onChange={(event) => this.props.handleInputChange(event)}/>
    <Button variant="outline-primary"  onClick={this.props.buttonClick}>Search</Button>
    </div>
  </Form>

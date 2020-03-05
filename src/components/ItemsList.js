@@ -78,10 +78,10 @@ class ItemsList extends React.Component {
     return (
 
         <div>
-         {this.props.isLoading('itemsList') ? <div><ToggleSearch  item={this.props.item} handleInputChange={this.props.handleInputChange} handleItemClick={this.handleItemClick}/><Loading /></div> :<div >
+         {this.props.isLoading('itemsList') ? <div><ToggleSearch query={this.props.query}  item={this.props.item} handleInputChange={this.props.handleInputChange} buttonClick={this.props.buttonClick} handleItemClick={this.handleItemClick}/><Loading /></div> :<div >
 
 <div className='card-container'></div>
-        {this.state.clickeditem ?  <ItemInfo clickeditem={this.state.clickeditem} decrementQuantity={this.decrementQuantity} incrementQuantity={this.incrementQuantity} decreaseSelectedItems={this.props.decreaseSelectedItems} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : <ToggleSearch handleInputChange={this.props.handleInputChange}  item={this.props.item} handleItemClick={this.handleItemClick}/>}
+        {this.state.clickeditem ?  <ItemInfo clickeditem={this.state.clickeditem} decrementQuantity={this.decrementQuantity} incrementQuantity={this.incrementQuantity} decreaseSelectedItems={this.props.decreaseSelectedItems} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : <ToggleSearch query={this.props.query} handleInputChange={this.props.handleInputChange} buttonClick={this.props.buttonClick}  item={this.props.item} handleItemClick={this.handleItemClick}/>}
          </div>}
 </div>
     )
