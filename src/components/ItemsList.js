@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemInfo from './ItemInfo'
 import ToggleSearch from './ToggleSearch'
+import Loading from './Loading';
 
  
 class ItemsList extends React.Component {
@@ -75,11 +76,14 @@ class ItemsList extends React.Component {
     
 
     return (
-         <div >
+
+        <div>
+         {this.props.isLoading('itemsList') ? <div><ToggleSearch  item={this.props.item} handleInputChange={this.props.handleInputChange} handleItemClick={this.handleItemClick}/><Loading /></div> :<div >
 
 <div className='card-container'></div>
-        {this.state.clickeditem ?  <ItemInfo clickeditem={this.state.clickeditem} decrementQuantity={this.decrementQuantity} incrementQuantity={this.incrementQuantity} decreaseSelectedItems={this.props.decreaseSelectedItems} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : <ToggleSearch  item={this.props.item} handleItemClick={this.handleItemClick}/>}
-         </div>
+        {this.state.clickeditem ?  <ItemInfo clickeditem={this.state.clickeditem} decrementQuantity={this.decrementQuantity} incrementQuantity={this.incrementQuantity} decreaseSelectedItems={this.props.decreaseSelectedItems} handleSelectClick={this.props.handleSelectClick} handleBackButton={this.handleBackButton}/> : <ToggleSearch handleInputChange={this.props.handleInputChange}  item={this.props.item} handleItemClick={this.handleItemClick}/>}
+         </div>}
+</div>
     )
   }
 }
