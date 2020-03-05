@@ -1,7 +1,5 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import {buyItems} from '../services/api'
-import { withTranslation } from 'react-i18next';
 import Checkout from './Checkout';
  
 class ShoppingCart extends React.Component {
@@ -77,6 +75,6 @@ componentDidMount() {
   }
 }
 
-export default withTranslation()(ShoppingCart);
+export default ShoppingCart
 
 

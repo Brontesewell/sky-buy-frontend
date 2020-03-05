@@ -1,7 +1,4 @@
 import React from 'react';
-import ItemCard from './ItemCard'
-import ItemInfo from './ItemInfo'
-import { TranslatorProvider, useTranslate } from "react-translate"
 import Loading from './Loading'
  
 class Home extends React.Component {
@@ -44,7 +41,7 @@ handleBackButton = () => {
 
     <div className='clothes'>
         <h3 id="home-title">Top Clothes:</h3>
-         {this.props.clothes.map((item) => <div className='card-shop'> <h5>{item.name}</h5> <img id="img-cards" alt="" src={item.pic}></img> <h5> Price: ${item.price}</h5> </div>)}
+         {this.props.clothes.map((item) => <div key={Math.random()} className='card-shop'> <h5>{item.name}</h5> <img id="img-cards" alt="" src={item.pic}></img> <h5> Price: ${item.price}</h5> </div>)}
      </div>
 
      <div className='shoes'>
