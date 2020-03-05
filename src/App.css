@@ -291,7 +291,23 @@ margin-right: 20%;
 }
 
 
+.edit-address {
+  text-align: center;
+}
 
+#edit-address-edit {
+  margin-left: 47%;
+  margin-right: 42%;
+}
+#edit-address-save {
+  margin-left: 47%;
+  margin-right: 42%;
+}
+
+#edit-address-input {
+  margin-left: 46%;
+  margin-right: 42%;
+}
 
 #checkout-title {
   text-align: center;
