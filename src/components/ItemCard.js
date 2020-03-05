@@ -10,7 +10,7 @@ class ItemsCard extends React.Component {
     <img id="img-cards" alt="" src={this.props.item.pic}></img>
     <br></br>
     <h5> Price: ${this.props.item.price}</h5>
-    {this.props.item.quantity && `Quantity: ${this.props.item.quantity}`}
+    {this.props.item.quantity > 0 && `Quantity: ${this.props.item.quantity}`}
     </div>
     </div>
     )

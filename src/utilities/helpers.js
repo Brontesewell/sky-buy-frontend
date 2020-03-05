@@ -15,6 +15,26 @@ export function constructItem(itemData){
       quantity: 0
     }
   }
+
+  export function getItemTitles(items) {
+    return items.map(item => item.name)
+  }
+
+  export function getTranslatedItemTitles(items) {
+    return items.map(item => {
+      return item.translation
+    })
+  }
+
+  export function replaceItemTitles(items, newTitles) {
+    const updatedTitles = getTranslatedItemTitles(newTitles)
+    return items.map((item, index) => {
+       const newItem = {...item,
+                   name: updatedTitles[index]
+                 }
+       return newItem
+    })
+  } 
   
   export function constructItems(itemData) {
     return itemData.map(item => constructItem(item))

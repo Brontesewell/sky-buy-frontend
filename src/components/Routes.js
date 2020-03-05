@@ -1,7 +1,4 @@
-// import React from 'react';
-// import { TranslatorProvider, useTranslate } from "react-translate"
 import React, { Suspense } from 'react';
-
 import {
     Switch, withRouter,
     Route
@@ -14,19 +11,19 @@ import ItemsList from './ItemsList'
 import Login from './Login'
 import {authenticate} from '../services/api'
 import {constructProfileItemArr} from '../utilities/helpers'
-import { searchForItems, updateProfile } from '../services/api'
+import { searchForItems, updateProfile, translateText } from '../services/api'
 import { constructItems} from '../utilities/helpers'
-import Loading from './Loading'
 
+// var googleTranslate = require('google-translate')("AIzaSyDPTZNeuSTSJtk64dT4pL21pbJcJ03-Sgs");
 
-// let googleTranslate = require('google-translate')("AIzaSyDPTZNeuSTSJtk64dT4pL21pbJcJ03-Sgs");
-
-// googleTranslate.translate('dog', 'en','zh', function(err, translation) {
-//   if (err) console.log(err)
-//   console.log(translation.translatedText);
-  
-  
+// googleTranslate.translate('My name is Brandon', 'es', function(err, translation) {
+//   console.log(err);
+//   // =>  Mi nombre es Brandon
 // });
+
+
+
+
 
 
 
@@ -166,12 +163,12 @@ class Routes extends React.Component {
     searchForItems("dog", 50).then(data => {
             
    
-    console.log(data["result"]["item"])    
+      
 
     this.setState(prevState => {
     return {
      ...prevState,
-     item: constructItems(data["result"]["item"]), 
+     item: data, 
     }
 
    })
@@ -183,12 +180,12 @@ topIphoneCases = () => {
  
   searchForItems("iphone case", 4).then(data => {
 
-  console.log(data["result"]["item"])    
+   
 
   this.setState(prevState => {
   return {
    ...prevState,
-   iphones: constructItems(data["result"]["item"]), 
+   iphones: data, 
   }
  })
   }).catch(err => console.log(err))
@@ -198,12 +195,12 @@ topClothes = () => {
 
   searchForItems("clothes", 4).then(data => {
 
-  console.log(data["result"]["item"])    
+      
 
   this.setState(prevState => {
   return {
    ...prevState,
-   clothes: constructItems(data["result"]["item"]), 
+   clothes: data, 
   }
  })
   }).catch(err => console.log(err))
@@ -213,12 +210,10 @@ topShoes = () => {
 
   searchForItems("shoes", 6).then(data => {
 
-  console.log(data["result"]["item"])    
-
   this.setState(prevState => {
   return {
    ...prevState,
-   shoes: constructItems(data["result"]["item"]), 
+   shoes: data
   }
  })
   }).catch(err => console.log(err))
@@ -239,7 +234,7 @@ topShoes = () => {
     searchForItems(this.state.query, 50).then(data => this.setState(prevState => {
       return {
        ...prevState,
-       item: constructItems(data["result"]["item"]), 
+       item: data, 
       }}))
   }
 

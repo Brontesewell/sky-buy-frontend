@@ -1,3 +1,5 @@
+import {getItemTitles, replaceItemTitles, constructItems} from "../utilities/helpers"
+
 
 const taobaoHeaders = {
     "x-rapidapi-host": "taobao-api.p.rapidapi.com",
@@ -18,8 +20,38 @@ export const searchForItems = (query, max_results) => {
         headers: taobaoHeaders
     }
 
-    return fetch(url, configuration).then(resp => resp.json())
+    return fetch(url, configuration).then(resp => resp.json()).then(data => {
+        //data["result"]["item"]
+        const constructedItems = constructItems(data["result"]["item"])
+        const chineseTitles = getItemTitles(constructedItems)
+        console.log("chinesetitles", chineseTitles)
+        return translateText(chineseTitles).then(data => {
+            console.log("after translation", data)
+            const finalItems = replaceItemTitles(constructedItems, data.translations)
+            console.log("final items", finalItems)
+            return finalItems
+        })
+    })
 }
+
+export const translateText = (textArr) => {
+    // const url = "https://api.us-south.language-translator.watson.cloud.ibm.com/instances/2b2eea60-ef31-4992-9a54-c2a85ad18dee/v3/translate?version=2018-05-01"
+    // const token = "YXBpa2V5OnNnOHZSV1hscl9mMGl6WmxvNGdMY3AyU1JfZi0zeXhsYWkzRkVIWW0yV2FF"
+    const url = "http://localhost:3000/api/v1/translate"
+    const configuration = {
+        method: "POST",
+        headers: {
+          "Content-Type": 'application/json',
+          "Accept": 'application/json'
+        //   "Authorization": `Basic ${token}`
+        },
+        body: JSON.stringify({text: textArr})
+    }
+    return fetch(url, configuration).then(resp => resp.json())
+
+} 
+
+
 
 // internal / our rails backend api methods
 
