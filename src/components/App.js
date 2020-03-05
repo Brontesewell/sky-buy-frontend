@@ -24,7 +24,7 @@ class App extends React.Component {
   componentDidMount() {
     
      // check to see if token, if so, authenticate
-     console.log("App mounted")
+     
        
       
 

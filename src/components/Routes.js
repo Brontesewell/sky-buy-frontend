@@ -16,6 +16,14 @@ import { constructItems} from '../utilities/helpers'
 import Loading from './Loading'
 
 
+// let googleTranslate = require('google-translate')("AIzaSyDPTZNeuSTSJtk64dT4pL21pbJcJ03-Sgs");
+
+// googleTranslate.translate('dog', 'en','zh', function(err, translation) {
+//   if (err) console.log(err)
+//   console.log(translation.translatedText);
+  
+  
+// });
 
 
 
