@@ -35,7 +35,7 @@ class Profile extends React.Component {
   <h1 className="profile" id="profile-name">{first_name} {last_name}'s Profile</h1>
     <EditAddress address={address} updateAddress={this.props.updateAddress} />
     <h4 className="profile">Purchases:</h4>
-      {this.props.items.map(item => <ItemsCard key={Math.random()} item={item} onHandleClick={this.props.onHandleClick} />)}
+      {this.props.items.map((item, key) => <div key={Math.random()} className='card-profile'> <h5 className="font-home">{item.name}</h5> <img id="img-cards" alt="" src={item.pic}></img> <h5> Price: ${item.price}</h5> <h5> Quantity: {item.quantity}</h5> </div>)}
     </div>
     }
     </div>

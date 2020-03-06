@@ -26,9 +26,7 @@
   background-color: white;
 }
 
-.shoes-card:hover {
-  box-shadow: 0 8px 16px 0 black;
-}
+
 
 .home-sub-title{
 text-align: center;
@@ -51,8 +49,16 @@ font-size: 40px;
   padding-top: 2%;
 }
 
-.card-shop:hover {
-  box-shadow: 0 8px 16px 0 black;
+.card-profile{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  text-align: center;
+  float: left;
+  width: 23%;
+  padding: 5px;
+  margin: 10px;
+  height: 19rem;
+  background-color: white;
 }
 
 .navbar {
