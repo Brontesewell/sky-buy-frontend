@@ -73,6 +73,7 @@ componentDidMount() {
          </div>
     )
   }
+  
 }
 
 export default ShoppingCart
