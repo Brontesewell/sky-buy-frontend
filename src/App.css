@@ -177,13 +177,13 @@ border-color: lightgrey;
 
 
 .mr-auto {
-  font-size: 23px;
+  font-size: x-large;
   font-weight: 600;
   padding-top: 10px;
 }
 
 .nav-link {
-  margin-left: 30px;
+  margin-left: 19px;
 }
 
 
@@ -237,11 +237,14 @@ border-color: lightgrey;
 }
 
 #name-nabar {
-  margin-right: 50px;
-  margin-top: 10px;
+  margin-right: 40px;
+  margin-top: 15px;
   font-family: 'Roboto', sans-serif;
-  font-size: 35px;
-  font-weight: 550;
+  font-size: x-large;
+  font-style: oblique;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-style: solid;
 }
 
 #item-card-div {
