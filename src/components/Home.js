@@ -7,12 +7,22 @@ class Home extends React.Component {
     clickeditem: null
   }
 
+  
   componentDidMount() {
-    this.props.topIphoneCases()
-    this.props.topClothes()
-    this.props.topShoes()
-  }
-
+    if (!localStorage.getItem("fire_token")) { 
+      
+      this.props.setLogin(false)
+      this.props.history.push("/")
+        
+    } else {
+      
+      this.props.isAuthenticatedUser()
+      this.props.topIphoneCases()
+      this.props.topClothes()
+      this.props.topShoes()
+       
+      }
+}
 
 handleItemClick = (item) => {
   this.setState({
@@ -30,8 +40,8 @@ handleBackButton = () => {
   render() {
     return (
      <div>
-
     { this.props.isLoading('home') ? <Loading />:<div>
+
     <h1 className="home-title">SkyBuy☁️</h1>
     <h4 className="home-sub-title">Items of the Week</h4>
     <div className='iphonecase'>
