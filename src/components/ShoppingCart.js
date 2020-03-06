@@ -48,7 +48,7 @@ componentDidMount() {
 
   calculateItemPrice = () => {
 
-    return this.props.selectedItems.map(item => (item.price) * (item.quantity)).reduce((a, b) => a + b, 0)
+    return this.props.selectedItems.map(item => (item.price) * (item.quantity + 1)).reduce((a, b) => a + b, 0)
 
   }
   
