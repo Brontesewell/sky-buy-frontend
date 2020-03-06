@@ -6,8 +6,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 
 
 const NavBar = (props) => {
-  console.log("navbar props", props )
-  console.log(props.handleInputChange)
+  
   const {first_name} = props.profile
 
 

@@ -49,7 +49,7 @@ class Routes extends React.Component {
 
 
   componentDidMount() {
-    console.log("Routes Mounted")
+    
      
    
   }
@@ -59,7 +59,7 @@ class Routes extends React.Component {
   isAuthenticatedUser = () => {
     authenticate(localStorage.getItem("fire_token")).then(resp => {
       if (!resp.errors) {  // authenticated
-        console.log("auth data: ", resp)
+        
         this.setState(prevState => {
           return {
             ...prevState,
@@ -278,7 +278,7 @@ localStorage.setItem('selectedItems', JSON.stringify(this.state.selectedItems));
               ...item, quantity: 1
             }]
         }
-      }, () => console.log("new value for selectedState", this.state.selectedItems))
+      })
       }
     }
 
@@ -371,7 +371,7 @@ removingAllSelectedItemsFromBuy = () => {
 
 
   render() {
-    console.log("Routes component, props:", this.props)
+    
     return (  
         
               <div> 

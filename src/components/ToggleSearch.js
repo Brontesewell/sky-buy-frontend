@@ -23,7 +23,7 @@ class ToogleSearch extends React.Component {
 <h3 id="recommended-itemslist">Recommended Items:</h3>
 <div className='card-container'></div>
 
-        { this.props.item.map((item) => <ItemCard key={Math.random()} item={item} handleItemClick={this.props.handleItemClick}/>)}
+        { this.props.item.map((item, key) => <ItemCard key={Math.random()} item={item} handleItemClick={this.props.handleItemClick}/>)}
          </div>
     )
   }

@@ -18,12 +18,12 @@ class Profile extends React.Component {
           this.props.isAuthenticatedUser()
          
         }
-        console.log("Profile Mounted")
+        
   }
   
 
   render() {
-    console.log("profile props in render method: ", this.props)
+    
     const {first_name, last_name, address} = this.props.profile
 
     return (
@@ -32,9 +32,9 @@ class Profile extends React.Component {
    
   {this.props.isLoading("profile") ? <Loading /> : <div>
      
-  <h1 class="profile" id="profile-name">{first_name} {last_name}'s Profile</h1>
+  <h1 className="profile" id="profile-name">{first_name} {last_name}'s Profile</h1>
     <EditAddress address={address} updateAddress={this.props.updateAddress} />
-    <h4 class="profile">Purchases:</h4>
+    <h4 className="profile">Purchases:</h4>
       {this.props.items.map(item => <ItemsCard key={Math.random()} item={item} onHandleClick={this.props.onHandleClick} />)}
     </div>
     }

@@ -24,11 +24,11 @@ export const searchForItems = (query, max_results) => {
         //data["result"]["item"]
         const constructedItems = constructItems(data["result"]["item"])
         const chineseTitles = getItemTitles(constructedItems)
-        console.log("chinesetitles", chineseTitles)
+        
         return translateText(chineseTitles).then(data => {
-            console.log("after translation", data)
+            
             const finalItems = replaceItemTitles(constructedItems, data.translations)
-            console.log("final items", finalItems)
+            
             return finalItems
         })
     })

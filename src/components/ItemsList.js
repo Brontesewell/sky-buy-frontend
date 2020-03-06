@@ -21,7 +21,7 @@ class ItemsList extends React.Component {
             this.props.isAuthenticatedUser()
             this.props.randomItems()
           }
-          console.log("ItemsList Mounted")
+          
     }
 
     state = {
@@ -32,7 +32,7 @@ class ItemsList extends React.Component {
 
     incrementQuantity = () =>{
         
-        console.log(this)
+        
         this.setState(prevState => {
            return { clickeditem: {
                 ...prevState.clickeditem,
@@ -46,7 +46,7 @@ class ItemsList extends React.Component {
 
     decrementQuantity = () =>{
         
-        console.log(this)
+        
         this.setState(prevState => {
            return { clickeditem: {
                 ...prevState.clickeditem,
