@@ -20,7 +20,7 @@
     "react-translate": "^7.0.1",
     "react-with-firebase-auth": "^1.3.0",
     "semantic-ui-react": "^0.88.2",
-    "underscore": "^1.9.2"
+    "underscore": "^1.12.1"
   },
   "scripts": {
     "start": "react-scripts start",
